@@ -3,235 +3,514 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Houston Barn Doors | Custom Barn Doors &amp; Ghost Doors — Houston, TX</title>
-  <meta name="description" content="Houston Barn Doors installs custom barn doors and ghost doors for Houston homes. Serving Houston &amp; surrounding areas. Call 832-783-9560 for a free estimate.">
+  <title>Houston Barn Doors | Custom Barn &amp; Ghost Doors — Houston, TX</title>
+  <meta name="description" content="Houston Barn Doors designs and installs custom sliding barn doors, ghost doors, and premium hardware for Houston homes. Free estimates — call 832-783-9560.">
+  <meta name="theme-color" content="#12100e">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Houston Barn Doors — Custom Barn &amp; Ghost Doors, Houston TX">
+  <meta property="og:description" content="Handcrafted sliding barn doors and ghost doors, professionally installed in Houston.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/photo-7.jpg">
+
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="assets/images/photo-7.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="assets/images/logo.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- ============================================================ NAVBAR -->
-  <nav class="navbar">
-    <div class="navbar__inner">
-      <a href="/" class="navbar__logo">
-        <img src="assets/images/logo.png" alt="Houston Barn Doors logo" height="52">
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo" aria-label="Houston Barn Doors home">
+        <img src="assets/images/logo.png" alt="Houston Barn Doors" height="48">
+        <span class="nav__wordmark">
+          <span class="nav__wordmark-primary">Houston Barn Doors</span>
+          <span class="nav__wordmark-sub">Est. Houston, TX</span>
+        </span>
       </a>
-      <div class="navbar__links">
+      <div class="nav__links" id="navLinks">
         <a href="#services">Services</a>
-        <a href="#work">Our Work</a>
+        <a href="#craft">Craft</a>
+        <a href="#work">Portfolio</a>
+        <a href="#process">Process</a>
         <a href="#contact">Contact</a>
-        <a href="tel:8327839560" class="btn btn--outline btn--sm">
+      </div>
+      <div class="nav__cta">
+        <a href="tel:8327839560" class="btn btn--gold btn--sm">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          832-783-9560
+          <span>832-783-9560</span>
         </a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
 
   <!-- ============================================================ HERO -->
-  <header class="hero">
+  <header class="hero" id="top">
+    <div class="hero__bg" role="img" aria-label="Custom barn door in a Houston home"></div>
+    <div class="hero__scrim"></div>
+    <div class="hero__grain" aria-hidden="true"></div>
+
     <div class="hero__inner">
-      <p class="eyebrow">Houston, Texas</p>
-      <h1>Custom Barn Doors<br>Built for Houston Homes</h1>
-      <p class="hero__copy">
-        Sliding barn doors, ghost doors, and modern hardware — professionally installed with clean, polished results every time. Serving Houston and surrounding areas.
+      <div class="hero__badge reveal">
+        <span class="hero__badge-dot" aria-hidden="true"></span>
+        <span>Handcrafted in Houston, TX</span>
+      </div>
+      <h1 class="hero__title reveal">
+        Doors that make
+        <span class="hero__title-accent">a statement.</span>
+      </h1>
+      <p class="hero__lede reveal">
+        Custom sliding barn doors, frameless ghost doors, and premium hardware —
+        designed, built, and installed with a level of finish you can see across the room.
       </p>
-      <div class="trust">
-        <span class="trust__stars" aria-label="Five star rating">★★★★★</span>
-        <span class="trust__text">Trusted by Houston homeowners</span>
-      </div>
-      <div class="hero__ctas">
-        <a href="#contact" class="btn btn--primary btn--lg">
-          Get a Free Quote
+      <div class="hero__ctas reveal">
+        <a href="#contact" class="btn btn--gold btn--lg">
+          Get My Free Quote
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <a href="tel:8327839560" class="btn btn--secondary btn--lg">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call Now
+        <a href="tel:8327839560" class="btn btn--ghost-light btn--lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call 832-783-9560
         </a>
-        <a href="#work" class="btn btn--ghost btn--lg">View Our Work ↓</a>
       </div>
+
+      <ul class="hero__proof reveal" aria-label="Why choose us">
+        <li>
+          <span class="hero__proof-icon" aria-hidden="true">✦</span>
+          <span><strong>Custom-sized</strong> for any opening</span>
+        </li>
+        <li>
+          <span class="hero__proof-icon" aria-hidden="true">✦</span>
+          <span><strong>Premium hardware</strong> &amp; soft-close</span>
+        </li>
+        <li>
+          <span class="hero__proof-icon" aria-hidden="true">✦</span>
+          <span><strong>Clean, careful</strong> installation</span>
+        </li>
+        <li>
+          <span class="hero__proof-icon" aria-hidden="true">✦</span>
+          <span><strong>Houston showroom</strong> — see &amp; feel</span>
+        </li>
+      </ul>
     </div>
+
+    <a href="#services" class="hero__scroll" aria-label="Scroll to services">
+      <span></span>
+    </a>
   </header>
 
-  <main>
+  <main id="main">
+
+    <!-- ============================================================ MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Sliding Barn Doors</span><span class="dot">•</span>
+        <span>Ghost Doors</span><span class="dot">•</span>
+        <span>Custom Hardware</span><span class="dot">•</span>
+        <span>Soft-Close Systems</span><span class="dot">•</span>
+        <span>Nationwide Shipping</span><span class="dot">•</span>
+        <span>Houston Showroom</span><span class="dot">•</span>
+        <span>Sliding Barn Doors</span><span class="dot">•</span>
+        <span>Ghost Doors</span><span class="dot">•</span>
+        <span>Custom Hardware</span><span class="dot">•</span>
+        <span>Soft-Close Systems</span><span class="dot">•</span>
+        <span>Nationwide Shipping</span><span class="dot">•</span>
+        <span>Houston Showroom</span><span class="dot">•</span>
+      </div>
+    </div>
 
     <!-- ============================================================ SERVICES -->
     <section class="section services" id="services">
-      <div class="section__header">
-        <p class="section__eyebrow">What We Do</p>
-        <h2>Professional Door Installation</h2>
-        <p>We specialize in custom interior barn doors and ghost doors that transform any room.</p>
-      </div>
-      <div class="services__grid">
-        <div class="card">
-          <div class="card__icon">🚪</div>
-          <h3>Sliding Barn Doors</h3>
-          <p>Classic and modern sliding barn door styles for bedrooms, closets, living areas, and more. Custom sizes available for any opening.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">✨</div>
-          <h3>Ghost Doors</h3>
-          <p>Sleek, frameless ghost doors that disappear into the wall for a seamless, high-end look. Perfect for modern and minimalist interiors.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">🔧</div>
-          <h3>Hardware &amp; Track Systems</h3>
-          <p>Quality hardware, track systems, and soft-close mechanisms installed cleanly and precisely. Matte black, brushed nickel, and more.</p>
-        </div>
-        <div class="card">
-          <div class="card__icon">📦</div>
-          <h3>Ships Nationwide</h3>
-          <p>We ship barn doors and hardware kits nationwide. Contact us for custom orders and shipping quotes.</p>
+      <div class="section__inner">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__rule"></span>What we do</p>
+          <h2>A signature line of doors, built to spec.</h2>
+          <p class="section__lede">Every door we build is measured to the opening, finished in-house, and installed by the same team. No middlemen. No shortcuts.</p>
+        </header>
+
+        <div class="services__grid">
+          <article class="svc reveal">
+            <div class="svc__num">01</div>
+            <div class="svc__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="4" y1="7" x2="20" y2="7"/><circle cx="15" cy="13" r="1"/></svg>
+            </div>
+            <h3>Sliding Barn Doors</h3>
+            <p>Classic barnwood, painted panels, herringbone, chevron — built to your dimensions and finished for the space it's going in.</p>
+            <span class="svc__hairline" aria-hidden="true"></span>
+          </article>
+
+          <article class="svc reveal">
+            <div class="svc__num">02</div>
+            <div class="svc__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+            </div>
+            <h3>Ghost Doors</h3>
+            <p>Frameless, minimalist doors that vanish into the wall. High-end, modern, and dramatic — perfect for pantries, offices, and primary suites.</p>
+            <span class="svc__hairline" aria-hidden="true"></span>
+          </article>
+
+          <article class="svc reveal">
+            <div class="svc__num">03</div>
+            <div class="svc__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><circle cx="7" cy="12" r="2"/><circle cx="17" cy="12" r="2"/></svg>
+            </div>
+            <h3>Hardware &amp; Tracks</h3>
+            <p>Matte black, brushed nickel, antique bronze — premium track systems with soft-close, dampers, and hardware trimmed to your opening.</p>
+            <span class="svc__hairline" aria-hidden="true"></span>
+          </article>
+
+          <article class="svc reveal">
+            <div class="svc__num">04</div>
+            <div class="svc__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Ships Nationwide</h3>
+            <p>Outside Houston? We ship custom doors and hardware kits across the country. Reach out with your project — we'll quote it.</p>
+            <span class="svc__hairline" aria-hidden="true"></span>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================ MID CTA STRIP -->
-    <div class="cta-strip">
+    <!-- ============================================================ CRAFT SHOWCASE -->
+    <section class="section craft" id="craft">
+      <div class="craft__inner">
+        <div class="craft__media reveal">
+          <div class="craft__frame">
+            <img src="assets/images/photo-3.jpg" alt="Signature Houston Barn Doors craftsmanship" loading="lazy">
+            <div class="craft__badge">
+              <div class="craft__badge-num">100%</div>
+              <div class="craft__badge-label">Custom-built<br>to your opening</div>
+            </div>
+          </div>
+        </div>
+        <div class="craft__copy reveal">
+          <p class="eyebrow"><span class="eyebrow__rule"></span>Signature craft</p>
+          <h2>Finished the way you'd finish it&nbsp;— if you had the shop.</h2>
+          <p>Doors from a big-box store come in a handful of sizes and one shade of okay. Ours are milled, sanded, stained, and hardware-fit in our Houston shop for the room they'll live in.</p>
+          <ul class="craft__list">
+            <li>
+              <span class="craft__check" aria-hidden="true">✓</span>
+              <span>Measured on-site so it fits the opening — not the other way around.</span>
+            </li>
+            <li>
+              <span class="craft__check" aria-hidden="true">✓</span>
+              <span>Solid wood construction, hand-finished stains and paints.</span>
+            </li>
+            <li>
+              <span class="craft__check" aria-hidden="true">✓</span>
+              <span>Soft-close hardware and premium tracks — installed cleanly.</span>
+            </li>
+            <li>
+              <span class="craft__check" aria-hidden="true">✓</span>
+              <span>Job site treated like your home, not a work site.</span>
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn--dark btn--lg">Start My Project
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ BEFORE / AFTER -->
+    <section class="section transform" id="transform">
+      <div class="section__inner">
+        <header class="section__head section__head--center reveal">
+          <p class="eyebrow eyebrow--center"><span class="eyebrow__rule"></span>Before &amp; After<span class="eyebrow__rule"></span></p>
+          <h2>The right door changes the whole room.</h2>
+          <p class="section__lede section__lede--center">Drag the divider to see the transformation on a real Houston install.</p>
+        </header>
+
+        <div class="ba reveal" id="ba">
+          <div class="ba__wrap">
+            <img class="ba__img ba__img--after" src="assets/images/photo-6.jpg" alt="After — custom barn door installation" loading="lazy">
+            <div class="ba__clip" id="baClip">
+              <img class="ba__img ba__img--before" src="assets/images/photo-11.jpg" alt="Before — plain interior door" loading="lazy">
+            </div>
+            <div class="ba__handle" id="baHandle" role="slider" tabindex="0" aria-label="Before after slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+              <span class="ba__line"></span>
+              <span class="ba__grip">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18" transform="translate(0 0)"/></svg>
+              </span>
+            </div>
+            <div class="ba__label ba__label--before">Before</div>
+            <div class="ba__label ba__label--after">After</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ GALLERY -->
+    <section class="section gallery-section" id="work">
+      <div class="section__inner">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__rule"></span>Portfolio</p>
+          <h2>Recent installs across Houston.</h2>
+          <p class="section__lede">A cross-section of custom doors we've built and installed. Every one measured, made, and finished for the space.</p>
+        </header>
+
+        <div class="gallery" id="gallery">
+          <a class="tile tile--tall" href="assets/images/photo-7.jpg" data-caption="Custom barn door — Houston install">
+            <img src="assets/images/photo-7.jpg" alt="Custom barn door — Houston install" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile" href="assets/images/photo-2.jpg" data-caption="Sliding barn door — bedroom install">
+            <img src="assets/images/photo-2.jpg" alt="Sliding barn door — bedroom install" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile" href="assets/images/photo-3.jpg" data-caption="Modern barn door style — Houston TX">
+            <img src="assets/images/photo-3.jpg" alt="Modern barn door style — Houston TX" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile tile--wide" href="assets/images/photo-4.jpg" data-caption="Ghost door — frameless clean finish">
+            <img src="assets/images/photo-4.jpg" alt="Ghost door — frameless clean finish" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile" href="assets/images/photo-5.jpg" data-caption="Premium hardware and track">
+            <img src="assets/images/photo-5.jpg" alt="Premium hardware and track" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile" href="assets/images/photo-6.jpg" data-caption="Custom barn door interior — Houston">
+            <img src="assets/images/photo-6.jpg" alt="Custom barn door interior — Houston" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile" href="assets/images/photo-8.jpg" data-caption="Interior sliding door — remodel">
+            <img src="assets/images/photo-8.jpg" alt="Interior sliding door — remodel" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile tile--tall" href="assets/images/photo-9.jpg" data-caption="Closet barn door — clean modern finish">
+            <img src="assets/images/photo-9.jpg" alt="Closet barn door — clean modern finish" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile" href="assets/images/photo-10.jpg" data-caption="Houston barn door project — hallway">
+            <img src="assets/images/photo-10.jpg" alt="Houston barn door project — hallway" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile" href="assets/images/photo-12.jpg" data-caption="Brushed hardware — clean track finish">
+            <img src="assets/images/photo-12.jpg" alt="Brushed hardware — clean track finish" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile tile--wide" href="assets/images/photo-13.jpg" data-caption="Professional install — Houston">
+            <img src="assets/images/photo-13.jpg" alt="Professional install — Houston" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+          <a class="tile" href="assets/images/photo-1.jpg" data-caption="Custom install — Houston home">
+            <img src="assets/images/photo-1.jpg" alt="Custom install — Houston home" loading="lazy">
+            <span class="tile__overlay"><span>View</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ PROCESS -->
+    <section class="section process" id="process">
+      <div class="section__inner">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__rule"></span>How it works</p>
+          <h2>Four steps. Zero guesswork.</h2>
+          <p class="section__lede">From the first call to the last screw, here's how we handle every project.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <div class="step__num">1</div>
+            <h3>Free consult</h3>
+            <p>Call, text, or fill out the form. We talk through your space, style, budget, and timeline — no pressure.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step__num">2</div>
+            <h3>Measure &amp; design</h3>
+            <p>We measure the opening on-site (or by video) and lock in door style, finish, and hardware.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step__num">3</div>
+            <h3>Built to order</h3>
+            <p>Your door is milled and finished in our Houston shop. Every panel, every stain, checked before it leaves.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step__num">4</div>
+            <h3>Clean install</h3>
+            <p>We show up on time, protect your floors, and install cleanly. When we leave, it just works.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ CTA STRIP -->
+    <section class="cta-strip">
+      <div class="cta-strip__bg" aria-hidden="true"></div>
       <div class="cta-strip__inner">
-        <p>Ready to transform your space? Get a free, no-obligation quote today.</p>
+        <div class="cta-strip__copy">
+          <p class="eyebrow eyebrow--light"><span class="eyebrow__rule"></span>Free estimate</p>
+          <h2>Ready to see what a real door feels like?</h2>
+          <p>Tell us about your space — we'll send back a fast, honest quote and next steps.</p>
+        </div>
         <div class="cta-strip__actions">
-          <a href="#contact" class="btn btn--primary">Get a Free Quote</a>
-          <a href="tel:8327839560" class="btn btn--outline-light">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="#contact" class="btn btn--gold btn--lg">Get My Free Quote</a>
+          <a href="tel:8327839560" class="btn btn--ghost-light btn--lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             832-783-9560
           </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ============================================================ GALLERY -->
-    <section class="section gallery-section" id="work">
-      <div class="section__header">
-        <p class="section__eyebrow">Portfolio</p>
-        <h2>Our Work</h2>
-        <p>Real projects from Houston homes — every install is done cleanly and with pride.</p>
-      </div>
-      <div class="gallery">
-        <a class="gallery__item" href="assets/images/photo-1.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-1.jpg" alt="Custom barn door installation — Houston home" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-2.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-2.jpg" alt="Sliding barn door — bedroom installation" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-3.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-3.jpg" alt="Modern barn door style — Houston TX" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-4.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-4.jpg" alt="Ghost door installation — clean frameless finish" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-5.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-5.jpg" alt="Barn door hardware and track — Houston TX" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-6.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-6.jpg" alt="Custom barn door — Houston home interior" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-7.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-7.jpg" alt="Barn door with matte black hardware" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-8.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-8.jpg" alt="Interior sliding door — Houston remodel" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-9.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-9.jpg" alt="Closet barn door — clean modern finish" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-10.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-10.jpg" alt="Houston barn door project — hallway" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-11.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-11.jpg" alt="Custom door install — Houston TX" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-12.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-12.jpg" alt="Barn door with brushed nickel track" loading="lazy">
-        </a>
-        <a class="gallery__item" href="assets/images/photo-13.jpg" target="_blank" rel="noreferrer">
-          <img src="assets/images/photo-13.jpg" alt="Professional barn door installation — Houston" loading="lazy">
-        </a>
+    <!-- ============================================================ TESTIMONIALS -->
+    <section class="section testimonials" id="reviews">
+      <div class="section__inner">
+        <header class="section__head section__head--center reveal">
+          <p class="eyebrow eyebrow--center"><span class="eyebrow__rule"></span>Client voices<span class="eyebrow__rule"></span></p>
+          <h2>See what our clients say.</h2>
+          <p class="section__lede section__lede--center">Real feedback we love hearing after a job wraps up.</p>
+        </header>
+
+        <div class="quotes">
+          <figure class="quote reveal">
+            <div class="quote__mark" aria-hidden="true">“</div>
+            <blockquote>
+              The fit is perfect, the finish is beautiful, and the installation was cleaner than we expected. It looks like it belongs in the house.
+            </blockquote>
+            <figcaption>
+              <span class="quote__stars" aria-label="Five star rating">★★★★★</span>
+              <span class="quote__meta">Verified Houston client</span>
+            </figcaption>
+          </figure>
+
+          <figure class="quote reveal">
+            <div class="quote__mark" aria-hidden="true">“</div>
+            <blockquote>
+              Communication was easy, the crew was on time, and the door is the first thing everyone comments on now. Worth every penny.
+            </blockquote>
+            <figcaption>
+              <span class="quote__stars" aria-label="Five star rating">★★★★★</span>
+              <span class="quote__meta">Verified Houston client</span>
+            </figcaption>
+          </figure>
+
+          <figure class="quote reveal">
+            <div class="quote__mark" aria-hidden="true">“</div>
+            <blockquote>
+              I visited the showroom, picked a style, and they handled the rest. The ghost door turned out even better than the reference photos.
+            </blockquote>
+            <figcaption>
+              <span class="quote__stars" aria-label="Five star rating">★★★★★</span>
+              <span class="quote__meta">Verified Houston client</span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <!-- ============================================================ REVIEWS -->
-    <div class="reviews-wrap">
-      <section class="section reviews">
-      <div class="section__header">
-        <p class="section__eyebrow">Reviews</p>
-        <h2>What Houston Homeowners Say</h2>
-      </div>
-      <div class="reviews__grid">
-        <div class="review-card">
-          <div class="review-card__stars">★★★★★</div>
-          <p class="review-card__text">"Amazing work! The barn door fits perfectly and the installation was super clean. Our bedroom looks completely transformed."</p>
-          <p class="review-card__author">— Sarah M., Houston TX</p>
-        </div>
-        <div class="review-card">
-          <div class="review-card__stars">★★★★★</div>
-          <p class="review-card__text">"Professional, on time, and the quality of the hardware is outstanding. Would absolutely recommend to anyone looking for a barn door in Houston."</p>
-          <p class="review-card__author">— James R., Katy TX</p>
-        </div>
-        <div class="review-card">
-          <div class="review-card__stars">★★★★★</div>
-          <p class="review-card__text">"Got the ghost door style — completely changed the look of our home office. Looks like something out of a magazine. Incredible job!"</p>
-          <p class="review-card__author">— Maria L., Sugar Land TX</p>
-        </div>
-      </div>
-      </section>
-    </div>
+    <!-- ============================================================ CONTACT -->
     <section class="section contact-section" id="contact">
-      <div class="section__header">
-        <p class="section__eyebrow">Get in Touch</p>
-        <h2>Request a Free Quote</h2>
-        <p>Tell us about your project and we'll get back to you with a free estimate. No obligation.</p>
-      </div>
-      <div class="contact__layout">
-        <div class="contact__info">
-          <div class="contact__info-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <div>
-              <strong>Call or Text</strong>
-              <a href="tel:8327839560">832-783-9560</a>
+      <div class="section__inner">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__rule"></span>Get in touch</p>
+          <h2>Request your free quote.</h2>
+          <p class="section__lede">Tell us about your project. We'll respond quickly with pricing, timing, and next steps — no obligation.</p>
+        </header>
+
+        <div class="contact">
+          <aside class="contact__side reveal">
+            <div class="contact__card">
+              <h3 class="contact__card-title">Talk to us directly</h3>
+
+              <a href="tel:8327839560" class="contact__row">
+                <span class="contact__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <span>
+                  <span class="contact__label">Call or text</span>
+                  <span class="contact__value">832-783-9560</span>
+                </span>
+              </a>
+
+              <a href="mailto:houstonbarndoors@gmail.com" class="contact__row">
+                <span class="contact__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <span>
+                  <span class="contact__label">Email</span>
+                  <span class="contact__value">houstonbarndoors@gmail.com</span>
+                </span>
+              </a>
+
+              <a href="https://maps.google.com/?q=2002+Brittmoore+Rd+Houston+TX+77043" target="_blank" rel="noreferrer" class="contact__row">
+                <span class="contact__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span>
+                  <span class="contact__label">Showroom</span>
+                  <span class="contact__value">2002 Brittmoore Rd<br>Houston, TX 77043</span>
+                </span>
+              </a>
+
+              <div class="contact__row contact__row--static">
+                <span class="contact__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span>
+                  <span class="contact__label">Showroom visits</span>
+                  <span class="contact__value">By appointment — call to schedule</span>
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="contact__info-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div>
-              <strong>Email</strong>
-              <a href="mailto:houstonbarndoors@gmail.com">houstonbarndoors@gmail.com</a>
+
+            <div class="contact__brag">
+              <p><strong>Local. Family-run. Houston-based.</strong></p>
+              <p>We answer the phone. We show up. We finish the job.</p>
             </div>
-          </div>
-          <div class="contact__info-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <div>
-              <strong>Showroom</strong>
-              <a href="https://maps.google.com/?q=2002+Brittmoore+Rd+Houston+TX+77043" target="_blank" rel="noreferrer">2002 Brittmoore Rd<br>Houston, TX 77043</a>
+          </aside>
+
+          <form class="contact__form reveal" action="https://formspree.io/f/houstonbarndoors" method="POST">
+            <div class="form__row">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required>
             </div>
-          </div>
-          <div class="contact__ctas">
-            <a href="tel:8327839560" class="btn btn--primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Call Now
-            </a>
-            <a href="mailto:houstonbarndoors@gmail.com" class="btn btn--secondary">Email Us</a>
-          </div>
+            <div class="form__grid">
+              <div class="form__row">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="713-555-0100" autocomplete="tel">
+              </div>
+              <div class="form__row">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form__row">
+              <label for="type">Project type</label>
+              <select id="type" name="type">
+                <option>Sliding barn door</option>
+                <option>Ghost door</option>
+                <option>Hardware / track only</option>
+                <option>Not sure yet — help me choose</option>
+              </select>
+            </div>
+            <div class="form__row">
+              <label for="message">Tell us about your project</label>
+              <textarea id="message" name="message" rows="4" placeholder="Room, opening size, style you're going for, any questions..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--gold btn--full btn--lg">
+              Send My Free Quote Request
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+            <p class="form__disclaimer">We respond within 1 business day. Your info stays with us — never sold.</p>
+          </form>
         </div>
-        <form class="contact__form" action="https://formspree.io/f/houstonbarndoors" method="POST">
-          <div class="form__row">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
-          </div>
-          <div class="form__row">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="713-555-0100">
-          </div>
-          <div class="form__row">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" required>
-          </div>
-          <div class="form__row">
-            <label for="message">Tell us about your project</label>
-            <textarea id="message" name="message" rows="4" placeholder="Type of door, room, dimensions, any questions..."></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">Send My Free Quote Request</button>
-          <p class="form__disclaimer">We respond within 1 business day.</p>
-        </form>
       </div>
     </section>
 
@@ -240,18 +519,59 @@
   <!-- ============================================================ FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__logo">
-        <img src="assets/images/logo.png" alt="Houston Barn Doors" height="44">
+      <div class="footer__brand">
+        <img src="assets/images/logo.png" alt="Houston Barn Doors" height="52">
+        <p class="footer__tag">Custom barn &amp; ghost doors — designed, built, and installed in Houston, TX.</p>
       </div>
-      <div class="footer__links">
+
+      <div class="footer__col">
+        <h4>Explore</h4>
         <a href="#services">Services</a>
-        <a href="#work">Gallery</a>
+        <a href="#craft">Signature Craft</a>
+        <a href="#work">Portfolio</a>
+        <a href="#process">Process</a>
         <a href="#contact">Contact</a>
-        <a href="tel:8327839560">832-783-9560</a>
       </div>
-      <p class="footer__copy">&copy; 2024 Houston Barn Doors &mdash; Houston, TX &middot; Showroom: 2002 Brittmoore Rd, Houston TX 77043</p>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <a href="tel:8327839560">832-783-9560</a>
+        <a href="mailto:houstonbarndoors@gmail.com">houstonbarndoors@gmail.com</a>
+        <a href="https://maps.google.com/?q=2002+Brittmoore+Rd+Houston+TX+77043" target="_blank" rel="noreferrer">2002 Brittmoore Rd<br>Houston, TX 77043</a>
+        <span class="footer__note">Showroom by appointment</span>
+      </div>
+
+      <div class="footer__col">
+        <h4>Service Area</h4>
+        <span>Houston &amp; surrounding metro</span>
+        <span>Katy · Sugar Land · The Woodlands</span>
+        <span>Pearland · Cypress · Spring</span>
+        <span class="footer__note">Nationwide shipping on request</span>
+      </div>
+    </div>
+    <div class="footer__base">
+      <p>&copy; <span id="year">2026</span> Houston Barn Doors. All rights reserved.</p>
+      <p>Designed &amp; built with care in Houston, Texas.</p>
     </div>
   </footer>
 
+  <!-- ============================================================ LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <figure class="lightbox__figure">
+      <img id="lightboxImg" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="scripts.js" defer></script>
 </body>
 </html>
