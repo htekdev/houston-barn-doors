@@ -1,6 +1,6 @@
 /* ============================================================
    HOUSTON'S BARN DOORS — LUXURY REDESIGN
-   Deep charcoal · warm off-white · warm sand
+   Black · white · brass gold (matches the HB barn-rail mark)
    Cinematic scroll · full-screen ghost door hero
    ============================================================ */
 
@@ -16,9 +16,16 @@
   --off-white-2:   #faf8f5;
   --cream:         #e8dfd5;
 
-  --sand:          #c8b89a;
-  --sand-2:        #b8a88a;
-  --sand-3:        #ded2bb;
+  /* Brand gold — pulled from the brass handle bar in the HB logo */
+  --gold:          #c9a063;
+  --gold-light:    #d4b07a;
+  --gold-dark:     #a07840;
+  --gold-tint:     #e3cb9f;
+  --gold-rgb:      201, 160, 99;
+
+  --sand:          var(--gold);
+  --sand-2:        var(--gold);
+  --sand-3:        var(--gold-tint);
 
   --warm-gray:     #3a3530;
   --muted:         #6b645c;
@@ -41,15 +48,16 @@
   --surface-soft:  var(--off-white-2);
   --ink:           var(--charcoal);
   --ink-2:         var(--charcoal-2);
-  --accent:        var(--sand-2);
-  --accent-2:      #a39274;
-  --accent-3:      var(--sand-3);
+  --accent:        var(--gold);
+  --accent-2:      var(--gold-dark);
+  --accent-3:      var(--gold-tint);
+  --btn-accent:    var(--gold);
 
   /* FX */
   --shadow-sm: 0 2px 10px rgba(10, 10, 10, 0.05);
   --shadow:    0 16px 40px rgba(10, 10, 10, 0.08);
   --shadow-lg: 0 40px 80px rgba(10, 10, 10, 0.16);
-  --shadow-accent: 0 12px 30px rgba(184, 168, 138, 0.32);
+  --shadow-accent: 0 12px 30px rgba(201, 160, 99, 0.32);
 
   --radius: 2px;
   --radius-md: 6px;
@@ -61,7 +69,7 @@
 
   --ease: cubic-bezier(.16,.84,.28,1);
 
-  --nav-h: 82px;
+  --nav-h: 96px;
 }
 
 /* ============================================================ RESET */
@@ -167,11 +175,11 @@ strong { font-weight: 500; color: var(--ink); }
 .btn:focus-visible { outline: 2px solid var(--sand); outline-offset: 3px; }
 
 .btn--accent {
-  background: var(--sand-2);
+  background: var(--btn-accent);
   color: var(--charcoal);
   box-shadow: var(--shadow-accent);
 }
-.btn--accent:hover { background: var(--sand-3); box-shadow: 0 18px 40px rgba(184, 168, 138, 0.42); }
+.btn--accent:hover { background: var(--gold-light); color: #000; box-shadow: 0 18px 40px rgba(201, 160, 99, 0.42); }
 
 .btn--dark { background: var(--charcoal); color: var(--off-white); }
 .btn--dark:hover { background: var(--warm-gray); }
@@ -217,17 +225,40 @@ strong { font-weight: 500; color: var(--ink); }
 }
 .nav.is-scrolled .nav__inner { padding: 13px 0; }
 
-.nav__logo { display: inline-flex; align-items: center; gap: 13px; color: #fff; }
-.nav__mark {
-  display: inline-flex; align-items: center; flex-shrink: 0;
-  border-radius: 2px; overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.07);
-  transition: transform 420ms var(--ease);
-}
-.nav__logo:hover .nav__mark { transform: scale(1.05); }
-.nav__mark img { display: block; height: 38px; width: 38px; object-fit: cover; }
+.nav__logo { display: inline-flex; align-items: center; gap: 14px; color: #fff; }
 
-.nav__wordmark { display: flex; flex-direction: column; line-height: 1.15; }
+/* Brand mark — the real HB logo on a white plaque. The source art is 1024×1024
+   with the monogram at x 91.5→932.5 / y 58.5→899.5 and the "HOUSTONS BARN DOORS"
+   lockup text below it; the crop window trims that text off so the adjacent
+   wordmark isn't duplicated. */
+.nav__mark {
+  display: block; flex-shrink: 0;
+  width: 52px; height: 52px;
+  padding: 5px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.45), 0 0 0 1px rgba(201, 160, 99, 0.55);
+  transition: transform 420ms var(--ease), box-shadow 420ms var(--ease);
+}
+.nav__logo:hover .nav__mark {
+  transform: scale(1.05);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.5), 0 0 0 1px rgba(201, 160, 99, 0.9);
+}
+.nav__mark-crop,
+.footer__mark-crop {
+  position: relative; display: block;
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+.nav__logo-img,
+.footer__logo-img {
+  position: absolute; display: block;
+  width: 121.8%; height: 121.8%;
+  left: -10.88%; top: -6.96%;
+  object-fit: cover;
+}
+
+.nav__wordmark { display: flex; flex-direction: column; line-height: 1.15; white-space: nowrap; }
 .nav__wordmark-primary {
   font-family: var(--serif);
   font-size: 1.06rem;
@@ -253,6 +284,7 @@ strong { font-weight: 500; color: var(--ink); }
   text-transform: uppercase;
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
   transition: color 280ms var(--ease);
 }
 .nav__links a::after {
@@ -355,7 +387,7 @@ strong { font-weight: 500; color: var(--ink); }
   animation: heroIn 1100ms var(--ease) both;
   animation-delay: 120ms;
 }
-.hero__eyebrow-rule { width: 46px; height: 1px; background: rgba(200, 184, 154, 0.75); display: inline-block; }
+.hero__eyebrow-rule { width: 46px; height: 1px; background: rgba(201, 160, 99, 0.8); display: inline-block; }
 
 .hero__title {
   color: #fff;
@@ -412,7 +444,7 @@ strong { font-weight: 500; color: var(--ink); }
 .hero__scroll:hover { color: #fff; }
 .hero__scroll-line {
   width: 1px; height: 62px;
-  background: linear-gradient(180deg, rgba(200,184,154,0.85), rgba(200,184,154,0));
+  background: linear-gradient(180deg, rgba(201,160,99,0.9), rgba(201,160,99,0));
   position: relative; overflow: hidden;
 }
 .hero__scroll-line::after {
@@ -808,7 +840,7 @@ strong { font-weight: 500; color: var(--ink); }
   color: var(--off-white);
   padding: 22px 26px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(200, 184, 154, 0.28);
+  border: 1px solid rgba(201, 160, 99, 0.32);
   max-width: 220px;
 }
 .craft__badge-num {
@@ -837,7 +869,7 @@ strong { font-weight: 500; color: var(--ink); }
   z-index: 1;
   background: var(--charcoal);
   padding: clamp(74px, 9vw, 130px) 0;
-  border-top: 1px solid rgba(200, 184, 154, 0.16);
+  border-top: 1px solid rgba(201, 160, 99, 0.2);
 }
 .cta-strip__inner {
   width: min(1320px, calc(100% - 48px));
@@ -881,9 +913,9 @@ a.contact__row:hover { transform: translateX(4px); }
   display: inline-flex; align-items: center; justify-content: center;
   width: 42px; height: 42px; flex-shrink: 0;
   border-radius: 50%;
-  background: rgba(200, 184, 154, 0.12);
-  color: var(--sand-3);
-  border: 1px solid rgba(200, 184, 154, 0.22);
+  background: rgba(201, 160, 99, 0.13);
+  color: var(--gold-tint);
+  border: 1px solid rgba(201, 160, 99, 0.28);
 }
 .contact__label {
   display: block;
@@ -943,8 +975,8 @@ a.contact__row:hover { transform: translateX(4px); }
 .form__row textarea:focus {
   outline: none;
   background: var(--surface);
-  border-color: var(--sand);
-  box-shadow: 0 0 0 3px rgba(200, 184, 154, 0.2);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 160, 99, 0.22);
 }
 .form__row input::placeholder, .form__row textarea::placeholder { color: var(--muted-2); font-weight: 300; }
 .form__disclaimer { font-size: 0.78rem; color: var(--muted-2); margin: 16px 0 0; text-align: center; }
@@ -965,8 +997,15 @@ a.contact__row:hover { transform: translateX(4px); }
   gap: clamp(30px, 4vw, 64px);
   padding-bottom: clamp(48px, 6vw, 76px);
 }
-.footer__mark { display: inline-flex; border-radius: 2px; overflow: hidden; margin-bottom: 18px; }
-.footer__mark img { height: 48px; width: 48px; object-fit: cover; }
+.footer__mark {
+  display: block;
+  width: 68px; height: 68px;
+  padding: 6px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(201, 160, 99, 0.55);
+  margin-bottom: 20px;
+}
 .footer__wordmark {
   font-family: var(--serif);
   font-size: 1.42rem;
@@ -1041,10 +1080,18 @@ a.contact__row:hover { transform: translateX(4px); }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 30px; }
 }
 
+/* Nav gets tight before the tablet breakpoint — drop the sub-wordmark early
+   so the logo, links and CTA stay on a single line. */
+@media (max-width: 1200px) {
+  .nav__wordmark-sub { display: none; }
+  .nav__links { gap: 26px; }
+}
+
 /* ============================================================ RESPONSIVE — TABLET */
 @media (max-width: 1024px) {
-  :root { --nav-h: 74px; }
+  :root { --nav-h: 90px; }
 
+  .nav__mark { width: 46px; height: 46px; padding: 4px; }
   .nav__inner { width: calc(100% - 36px); grid-template-columns: auto auto; justify-content: space-between; }
   .nav__links {
     position: fixed;
@@ -1095,7 +1142,7 @@ a.contact__row:hover { transform: translateX(4px); }
 
 /* ============================================================ RESPONSIVE — MOBILE */
 @media (max-width: 640px) {
-  :root { --nav-h: 68px; }
+  :root { --nav-h: 72px; }
 
   .section__inner,
   .strip__inner,
@@ -1104,7 +1151,9 @@ a.contact__row:hover { transform: translateX(4px); }
   .footer__inner,
   .footer__base { width: calc(100% - 32px); }
 
-  .nav__inner { width: calc(100% - 28px); gap: 12px; }
+  .nav__inner { width: calc(100% - 28px); gap: 12px; padding: 14px 0; }
+  .nav__logo { gap: 11px; }
+  .nav__mark { width: 44px; height: 44px; padding: 4px; }
   .nav__wordmark-primary { font-size: 0.92rem; }
   .nav__cta .btn span { display: none; }
   .nav__cta .btn--sm { padding: 10px 13px; }
