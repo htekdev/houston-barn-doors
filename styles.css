@@ -105,6 +105,7 @@ button { font-family: inherit; }
 }
 .nav__logo img { height: 44px; width: auto; transition: height 240ms var(--ease); }
 .nav.is-scrolled .nav__logo img { height: 36px; }
+.nav.is-scrolled .nav__wordmark-primary { font-size: 1rem; }
 .nav__wordmark { display: flex; flex-direction: column; line-height: 1.1; }
 .nav__wordmark-primary {
   font-family: var(--serif);
@@ -999,6 +1000,14 @@ button { font-family: inherit; }
   filter: brightness(0) invert(1);
   opacity: 0.95;
   margin-bottom: 16px;
+}
+.footer__wordmark {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: rgba(245,236,216,0.98);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
 }
 .footer__tag {
   color: rgba(245,236,216,0.7);
