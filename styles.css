@@ -190,13 +190,15 @@ em { font-style: italic; color: var(--accent-2); }
 .nav__mark {
   display: inline-flex;
   align-items: center;
-  padding: 2px 4px;
   flex-shrink: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06);
 }
 .nav__mark img {
-  height: 30px;
-  width: auto;
-  min-width: 56px;
+  display: block;
+  height: 40px;
+  width: 40px;
   filter: none;
 }
 .nav__wordmark { display: flex; flex-direction: column; line-height: 1.05; }
@@ -1030,4 +1032,74 @@ em { font-style: italic; color: var(--accent-2); }
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero__bg { transition: none; }
   .hero__scroll span { animation: none; }
+}
+
+/* ============================================================ WOOD-SLAT PATTERN (diagonal, modern)
+   Subtle geometric texture inspired by modern barn-door slat geometry.
+   Applied as an ambient overlay on dark strips, CTA bands, and hero scrim. */
+.strip--dark { position: relative; overflow: hidden; }
+.strip--dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(184, 153, 104, 0.09) 0 2px,
+      rgba(0, 0, 0, 0) 2px 16px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.04) 0 1px,
+      rgba(0, 0, 0, 0) 1px 22px
+    );
+  opacity: 0.7;
+  z-index: 0;
+}
+.strip--dark .strip__inner { position: relative; z-index: 1; }
+
+.cta-strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(184, 153, 104, 0.10) 0 2px,
+      rgba(0, 0, 0, 0) 2px 18px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(184, 153, 104, 0.05) 0 1px,
+      rgba(0, 0, 0, 0) 1px 26px
+    );
+  mask-image: radial-gradient(80% 100% at 100% 50%, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(80% 100% at 100% 50%, #000 0%, transparent 75%);
+  opacity: 0.9;
+  z-index: 0;
+}
+.cta-strip__inner { position: relative; z-index: 1; }
+
+/* Hero scrim — subtle diagonal slat texture reinforces modern-luxury feel */
+.hero__scrim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.035) 0 1px,
+      rgba(0, 0, 0, 0) 1px 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.025) 0 1px,
+      rgba(0, 0, 0, 0) 1px 28px
+    );
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0) 100%);
+  opacity: 0.9;
 }
