@@ -45,7 +45,11 @@
 
 /* ============================================================ RESET */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 body {
   margin: 0;
   font-family: var(--sans);
@@ -55,6 +59,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  max-width: 100%;
 }
 img { display: block; max-width: 100%; }
 a { color: var(--wood); }
@@ -844,9 +849,11 @@ button { font-family: inherit; }
   gap: 40px;
   align-items: start;
 }
+.contact > * { min-width: 0; }
 .contact__side {
   display: flex; flex-direction: column; gap: 20px;
   position: sticky; top: 100px;
+  min-width: 0;
 }
 .contact__card {
   background: var(--surface);
@@ -897,6 +904,8 @@ button { font-family: inherit; }
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.4;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .contact__brag {
   padding: 22px 26px;
@@ -915,13 +924,15 @@ button { font-family: inherit; }
   padding: 40px;
   box-shadow: var(--shadow-lg);
   display: flex; flex-direction: column; gap: 20px;
+  min-width: 0;
 }
-.form__row { display: flex; flex-direction: column; gap: 8px; }
+.form__row { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .form__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.form__grid > * { min-width: 0; }
 .form__row label {
   font-size: 0.78rem;
   font-weight: 700;
@@ -941,6 +952,9 @@ button { font-family: inherit; }
   background: var(--surface-soft);
   outline: none;
   transition: border-color 160ms var(--ease), box-shadow 160ms var(--ease), background 160ms var(--ease);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 .form__row input:focus,
 .form__row select:focus,
