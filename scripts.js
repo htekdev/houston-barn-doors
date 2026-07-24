@@ -1,4 +1,4 @@
-/* Houston Barn Doors — interactive layer
+/* Houston's Barn Doors — interactive layer
    Sticky nav, mobile menu, scroll reveal, before/after slider, gallery lightbox. */
 
 (() => {
