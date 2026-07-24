@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" role="img" aria-label="Houston's Barn Doors — HB monogram">
+  <!--
+    HB monogram — H for Houston, B for Barn Doors.
+    Serif H with a horizontal cross-bar (sliding-door rail motif) beside a solid serif B.
+    Renders in currentColor so it inherits nav/footer text color.
+  -->
+  <g fill="currentColor" fill-rule="evenodd">
+    <!-- H: heavy modern serif letterform -->
+    <path d="M8 12 h16 v34 h48 V12 h16 v76 h-16 V60 H24 v28 H8 z" />
+    <!-- Horizontal rail line slicing through the H (sliding-door rail motif) -->
+    <rect x="4" y="49" width="96" height="2.2" />
+    <!-- B: solid modern serif B silhouette -->
+    <path d="M118 12 h32 c14 0 24 8 24 20 c0 8 -4 13 -10 16 c8 3 13 9 13 18 c0 14 -12 22 -28 22 h-31 z
+             M134 44 h14 c8 0 12 -4 12 -10 s -4 -10 -12 -10 h-14 z
+             M134 76 h16 c9 0 14 -4 14 -12 s -5 -12 -14 -12 h-16 z" />
+  </g>
+</svg>
