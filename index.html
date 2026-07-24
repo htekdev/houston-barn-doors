@@ -5,23 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Houston's Barn Doors | Custom Concealed Ghost Doors — Houston, TX</title>
   <meta name="description" content="Handcrafted concealed ghost doors and custom sliding barn doors, made in Houston. Solid wood, up to 10 feet tall, any design — even glass. The only US builder of custom concealed ghost doors.">
-  <meta name="theme-color" content="#0d0d0d">
+  <meta name="theme-color" content="#0a0a0a">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Houston's Barn Doors — Custom Concealed Ghost Doors, Houston TX">
-  <meta property="og:description" content="Handcrafted concealed ghost doors and custom sliding barn doors. Solid wood. American-made. Up to 10 feet tall. Any design.">
+  <meta property="og:description" content="Where walls become art. Handcrafted concealed ghost doors. Solid American wood. Up to 10 feet tall. Any design.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/photo-11.jpg">
+  <meta property="og:image" content="assets/images/ghost-door-hero-ai.jpg">
 
   <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/photo-11.jpg">
+  <link rel="preload" as="image" href="assets/images/ghost-door-hero-ai.jpg" fetchpriority="high">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230d0d0d'/%3E%3Cg fill='%23ffffff'%3E%3Crect x='8' y='22' width='34' height='5'/%3E%3Crect x='8' y='73' width='34' height='5'/%3E%3Crect x='15' y='22' width='7' height='56'/%3E%3Crect x='28' y='22' width='7' height='56'/%3E%3Crect x='15' y='47' width='20' height='6'/%3E%3Crect x='52' y='22' width='24' height='5'/%3E%3Crect x='52' y='73' width='28' height='5'/%3E%3Crect x='58' y='22' width='7' height='56'/%3E%3Cpath d='M65 27 h10 a11 11 0 0 1 0 22 h-10 z'/%3E%3Cpath d='M65 49 h12 a12 12 0 0 1 0 24 h-12 z'/%3E%3C/g%3E%3C/svg%3E">
+  <!-- AOS — Animate On Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Cg fill='%23ffffff'%3E%3Crect x='8' y='22' width='34' height='5'/%3E%3Crect x='8' y='73' width='34' height='5'/%3E%3Crect x='15' y='22' width='7' height='56'/%3E%3Crect x='28' y='22' width='7' height='56'/%3E%3Crect x='15' y='47' width='20' height='6'/%3E%3Crect x='52' y='22' width='24' height='5'/%3E%3Crect x='52' y='73' width='28' height='5'/%3E%3Crect x='58' y='22' width='7' height='56'/%3E%3Cpath d='M65 27 h10 a11 11 0 0 1 0 22 h-10 z'/%3E%3Cpath d='M65 49 h12 a12 12 0 0 1 0 24 h-12 z'/%3E%3C/g%3E%3Crect x='44' y='38' width='4' height='24' fill='%23c9a063'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -33,11 +36,13 @@
     <div class="nav__inner">
       <a href="#top" class="nav__logo" aria-label="Houston's Barn Doors home">
         <span class="nav__mark" aria-hidden="true">
-          <img src="assets/logo/hb-mark-light.svg" alt="" width="40" height="40">
+          <span class="nav__mark-crop">
+            <img src="assets/logo/hb-logo.jpg" alt="" class="nav__logo-img" width="52" height="52" fetchpriority="high">
+          </span>
         </span>
         <span class="nav__wordmark">
           <span class="nav__wordmark-primary">Houston's Barn Doors</span>
-          <span class="nav__wordmark-sub">Custom Ghost Doors · Houston, TX</span>
+          <span class="nav__wordmark-sub">Concealed Ghost Doors · Houston, TX</span>
         </span>
       </a>
       <div class="nav__links" id="navLinks">
@@ -50,7 +55,7 @@
       </div>
       <div class="nav__cta">
         <a href="tel:8329310468" class="btn btn--accent btn--sm">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>832-931-0468</span>
         </a>
         <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
@@ -62,85 +67,69 @@
 
   <!-- ============================================================ HERO -->
   <header class="hero" id="top">
-    <div class="hero__bg" role="img" aria-label="Custom modern barn door — arched entry, dark finish, Houston install"></div>
-    <div class="hero__scrim"></div>
+    <div class="hero__bg" id="heroBg" role="img" aria-label="Custom concealed ghost door with geometric wood slat pattern, installed in a modern Houston home"></div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__grain" aria-hidden="true"></div>
 
     <div class="hero__inner">
-      <div class="hero__eyebrow reveal">
+      <p class="hero__eyebrow">
         <span class="hero__eyebrow-rule"></span>
-        <span>American-made · Handcrafted in Houston, TX</span>
-      </div>
-      <h1 class="hero__title reveal">
-        Concealed <em>ghost&nbsp;doors,</em><br>
-        built as architecture.
-      </h1>
-      <p class="hero__lede reveal">
-        We're the only US shop building custom, made-to-order concealed ghost doors —
-        solid wood, up to ten feet tall, in any design you can draw. No imports. No standard sizes.
+        <span>Handmade in Houston, Texas</span>
+        <span class="hero__eyebrow-rule"></span>
       </p>
-      <div class="hero__ctas reveal">
+
+      <h1 class="hero__title">Where walls<br><em>become art.</em></h1>
+
+      <p class="hero__lede">
+        Custom concealed ghost doors — handmade in Houston, TX.
+        Solid American wood, built to your opening, up to ten feet tall.
+      </p>
+
+      <div class="hero__ctas">
         <a href="#contact" class="btn btn--accent btn--lg">
-          Request a Custom Quote
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          Request a Quote
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a href="tel:8329310468" class="btn btn--ghost-light btn--lg">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           Call 832-931-0468
         </a>
       </div>
-
-      <ul class="hero__proof reveal" aria-label="What sets us apart">
-        <li>
-          <span class="hero__proof-icon" aria-hidden="true">◇</span>
-          <span><strong>Only US builder</strong> of custom concealed ghost doors</span>
-        </li>
-        <li>
-          <span class="hero__proof-icon" aria-hidden="true">◇</span>
-          <span><strong>Solid wood,</strong> up to <strong>10 feet</strong> tall</span>
-        </li>
-        <li>
-          <span class="hero__proof-icon" aria-hidden="true">◇</span>
-          <span><strong>Any design</strong> — including glass panels</span>
-        </li>
-        <li>
-          <span class="hero__proof-icon" aria-hidden="true">◇</span>
-          <span><strong>Fits your existing trim</strong> — no demo, less mess</span>
-        </li>
-      </ul>
     </div>
 
-    <a href="#ghost" class="hero__scroll" aria-label="Scroll to ghost doors">
-      <span></span>
+    <a href="#usp" class="hero__scroll" aria-label="Scroll down">
+      <span class="hero__scroll-label">Scroll</span>
+      <span class="hero__scroll-line"></span>
     </a>
   </header>
 
   <main id="main">
 
     <!-- ============================================================ USP STRIP -->
-    <section class="strip strip--dark" aria-label="What sets us apart">
+    <section class="strip" id="usp" aria-label="What sets us apart">
       <div class="strip__inner">
-        <div class="strip__item">
+        <div class="strip__item" data-aos="fade-up" data-aos-delay="0">
           <div class="strip__num">01</div>
           <div>
             <h3>Only in America</h3>
             <p>Every competitor imports from China. Ours are built here, by hand, in Houston.</p>
           </div>
         </div>
-        <div class="strip__item">
+        <div class="strip__item" data-aos="fade-up" data-aos-delay="100">
           <div class="strip__num">02</div>
           <div>
             <h3>Custom to the inch</h3>
             <p>Imports top out at 84–86 inches. We build to your opening — up to 120 inches tall.</p>
           </div>
         </div>
-        <div class="strip__item">
+        <div class="strip__item" data-aos="fade-up" data-aos-delay="200">
           <div class="strip__num">03</div>
           <div>
             <h3>Solid, not hollow</h3>
             <p>Real solid-wood construction. No hollow-core cores. No mystery materials.</p>
           </div>
         </div>
-        <div class="strip__item">
+        <div class="strip__item" data-aos="fade-up" data-aos-delay="300">
           <div class="strip__num">04</div>
           <div>
             <h3>Any design, even glass</h3>
@@ -150,10 +139,10 @@
       </div>
     </section>
 
-    <!-- ============================================================ GHOST DOORS (HERO PRODUCT) -->
+    <!-- ============================================================ GHOST DOORS (SIGNATURE PRODUCT) -->
     <section class="section section--dark ghost" id="ghost">
       <div class="section__inner">
-        <header class="section__head section__head--center reveal">
+        <header class="section__head section__head--center" data-aos="fade-up">
           <p class="eyebrow eyebrow--center eyebrow--light"><span class="eyebrow__rule"></span>Signature product<span class="eyebrow__rule"></span></p>
           <h2>Concealed ghost doors — <em>architecture,</em> not hardware.</h2>
           <p class="section__lede section__lede--center section__lede--light">
@@ -161,40 +150,57 @@
           </p>
         </header>
 
-        <div class="ghost__grid reveal">
-          <figure class="ghost__hero">
+        <div class="ghost__showcase">
+          <figure class="ghost__showcase-figure" data-aos="zoom-in" data-aos-duration="1100">
+            <img src="assets/images/ghost-door-signature.jpg" alt="Two custom ghost door panels with a geometric diagonal wood slat pattern, handmade in Houston" loading="lazy">
+          </figure>
+          <div class="ghost__showcase-copy" data-aos="fade-up" data-aos-delay="200">
+            <p class="ghost__showcase-meta">The signature geometric</p>
+            <h3 class="ghost__showcase-title">Four quadrants. One continuous line.</h3>
+            <p>Each panel is laid up slat by slat — diagonal runs pivoting across four quadrants so the grain catches light differently from every angle. Closed, it reads as a single sculptural wall. Open, it disappears.</p>
+            <dl class="ghost__spec">
+              <div><dt>Material</dt><dd>Solid American pine</dd></div>
+              <div><dt>Max height</dt><dd>Up to 10 feet</dd></div>
+              <div><dt>Finish</dt><dd>Custom stain match</dd></div>
+              <div><dt>Build</dt><dd>Made to order, Houston TX</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="ghost__grid">
+          <figure class="ghost__hero" data-aos="zoom-in" data-aos-delay="0">
             <img src="assets/images/photo-5.jpg" alt="Modern architectural door — vertical slat, custom Houston install" loading="lazy">
             <figcaption>Custom architectural door · handmade in Houston</figcaption>
           </figure>
           <div class="ghost__side">
-            <figure><img src="assets/images/photo-8.jpg" alt="Custom chevron sliding door — modern finish" loading="lazy"></figure>
-            <figure><img src="assets/images/photo-6.jpg" alt="Glass sliding barn doors — custom install, Houston" loading="lazy"></figure>
+            <figure data-aos="zoom-in" data-aos-delay="150"><img src="assets/images/photo-8.jpg" alt="Custom chevron sliding door — modern finish" loading="lazy"></figure>
+            <figure data-aos="zoom-in" data-aos-delay="300"><img src="assets/images/photo-6.jpg" alt="Glass sliding barn doors — custom install, Houston" loading="lazy"></figure>
           </div>
         </div>
 
-        <ul class="ghost__points reveal">
-          <li>
+        <ul class="ghost__points">
+          <li data-aos="fade-up" data-aos-delay="0">
             <span class="ghost__points-icon" aria-hidden="true">◇</span>
             <div>
               <h4>Reads like art</h4>
               <p>Panels the same plane as your wall. No frame, no reveal, no distraction — just a clean architectural statement.</p>
             </div>
           </li>
-          <li>
+          <li data-aos="fade-up" data-aos-delay="100">
             <span class="ghost__points-icon" aria-hidden="true">◇</span>
             <div>
               <h4>Space-saving by design</h4>
               <p>Slides flush against the wall instead of swinging into the room. Ideal for tight closets, powder rooms, offices, and primary suites where every inch matters.</p>
             </div>
           </li>
-          <li>
+          <li data-aos="fade-up" data-aos-delay="200">
             <span class="ghost__points-icon" aria-hidden="true">◇</span>
             <div>
               <h4>Works with your trim</h4>
               <p>We accommodate the trim that's already there. Less demo, less mess, lower install cost.</p>
             </div>
           </li>
-          <li>
+          <li data-aos="fade-up" data-aos-delay="300">
             <span class="ghost__points-icon" aria-hidden="true">◇</span>
             <div>
               <h4>Glass welcome</h4>
@@ -203,11 +209,21 @@
           </li>
         </ul>
 
-        <div class="ghost__cta reveal">
+        <div class="ghost__cta" data-aos="fade-up">
           <a href="#contact" class="btn btn--accent btn--lg">Design a Ghost Door
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ CINEMATIC STATEMENT BAND -->
+    <section class="band" aria-label="Statement">
+      <div class="band__bg" id="bandBg" aria-hidden="true"></div>
+      <div class="band__scrim" aria-hidden="true"></div>
+      <div class="band__inner">
+        <p class="band__kicker" data-aos="fade-up">The quietest luxury in the room</p>
+        <h2 class="band__text" data-aos="fade-up" data-aos-delay="120">Where walls <em>disappear.</em></h2>
       </div>
     </section>
 
@@ -215,30 +231,30 @@
     <section class="section why" id="why">
       <div class="section__inner">
         <div class="why__inner">
-          <div class="why__copy reveal">
+          <div class="why__copy" data-aos="fade-up">
             <p class="eyebrow"><span class="eyebrow__rule"></span>Why homeowners choose them</p>
             <h2>Beautiful, functional, and a little bit magic.</h2>
             <p>Concealed ghost doors solve a real design problem — they give a room accessibility and openness without the visual noise of a traditional door. When they're closed, the room finishes cleaner. When they're open, they disappear against the wall.</p>
             <ul class="why__list">
-              <li>
+              <li data-aos="fade-up" data-aos-delay="100">
                 <span class="why__check" aria-hidden="true">→</span>
                 <span><strong>More usable square footage.</strong> Slides against the wall — no swing radius eating into your floor plan.</span>
               </li>
-              <li>
+              <li data-aos="fade-up" data-aos-delay="180">
                 <span class="why__check" aria-hidden="true">→</span>
                 <span><strong>Better accessibility.</strong> Wider clear openings with less effort than a swinging door.</span>
               </li>
-              <li>
+              <li data-aos="fade-up" data-aos-delay="260">
                 <span class="why__check" aria-hidden="true">→</span>
                 <span><strong>Architectural statement.</strong> A finished detail that upgrades the whole room — often the first thing guests comment on.</span>
               </li>
-              <li>
+              <li data-aos="fade-up" data-aos-delay="340">
                 <span class="why__check" aria-hidden="true">→</span>
                 <span><strong>Made for high-end homes.</strong> Built for clients who care about the small things — the ones you notice up close.</span>
               </li>
             </ul>
           </div>
-          <div class="why__media reveal">
+          <div class="why__media" data-aos="zoom-in" data-aos-delay="150">
             <div class="why__frame">
               <img src="assets/images/photo-10.jpg" alt="Custom double sliding doors installed in a modern Houston home" loading="lazy">
             </div>
@@ -247,27 +263,42 @@
       </div>
     </section>
 
+    <!-- ============================================================ CRAFTSMANSHIP QUOTE -->
+    <section class="quote" aria-label="Craftsmanship">
+      <div class="quote__inner">
+        <span class="quote__mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="quote__text" data-aos="fade-up">
+          A door should never announce itself. It should simply belong — to the wall, to the room, to the way you live in it.
+        </blockquote>
+        <div class="quote__attr" data-aos="fade-up" data-aos-delay="150">
+          <span class="quote__rule"></span>
+          <span class="quote__name">Paula Galvan Perez</span>
+          <span class="quote__role">Founder · Houston's Barn Doors</span>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================================================ SLIDING BARN DOORS -->
     <section class="section barn" id="barn">
       <div class="section__inner">
-        <header class="section__head reveal">
+        <header class="section__head" data-aos="fade-up">
           <p class="eyebrow"><span class="eyebrow__rule"></span>Also custom</p>
           <h2>Modern sliding barn doors — refined, not rustic.</h2>
           <p class="section__lede">Clean panels, minimalist hardware, honest wood. Built to your opening and finished for the space it lives in.</p>
         </header>
 
         <div class="barn__grid">
-          <article class="barn__card reveal">
+          <article class="barn__card" data-aos="fade-up" data-aos-delay="0">
             <img src="assets/images/photo-11.jpg" alt="Black X-pattern sliding barn door — modern archway install" loading="lazy">
             <h3>Panel doors</h3>
             <p>Flat-panel, chevron, X-brace, or custom pattern. Painted or stained. Sized to your opening — not a catalog SKU.</p>
           </article>
-          <article class="barn__card reveal">
+          <article class="barn__card" data-aos="fade-up" data-aos-delay="150">
             <img src="assets/images/photo-6.jpg" alt="Glass sliding barn doors — modern kitchen install" loading="lazy">
             <h3>Glass doors</h3>
             <p>Framed glass sliders in matte black or brushed steel — mixed with wood panels or fully translucent.</p>
           </article>
-          <article class="barn__card reveal">
+          <article class="barn__card" data-aos="fade-up" data-aos-delay="300">
             <img src="assets/images/photo-12.jpg" alt="Custom double sliding doors — clean modern finish" loading="lazy">
             <h3>Double sliders</h3>
             <p>Twin panels that meet in the middle — the cleanest way to close off a wide opening without losing floor space.</p>
@@ -279,42 +310,42 @@
     <!-- ============================================================ GALLERY -->
     <section class="section gallery-section" id="work">
       <div class="section__inner">
-        <header class="section__head section__head--center reveal">
+        <header class="section__head section__head--center" data-aos="fade-up">
           <p class="eyebrow eyebrow--center"><span class="eyebrow__rule"></span>Portfolio<span class="eyebrow__rule"></span></p>
           <h2>Recent installs.</h2>
           <p class="section__lede section__lede--center">A cross-section of custom doors we've built and installed in Houston homes and shipped nationwide.</p>
         </header>
 
         <div class="gallery" id="gallery">
-          <a class="tile tile--tall" href="assets/images/photo-11.jpg" data-caption="Custom black barn door — modern arched entry">
+          <a class="tile tile--tall" href="assets/images/photo-11.jpg" data-caption="Custom black barn door — modern arched entry" data-aos="zoom-in" data-aos-delay="0">
             <img src="assets/images/photo-11.jpg" alt="Custom black barn door — modern arched entry" loading="lazy">
             <span class="tile__overlay"><span>View</span></span>
           </a>
-          <a class="tile" href="assets/images/photo-5.jpg" data-caption="Modern architectural door — vertical slat">
+          <a class="tile" href="assets/images/photo-5.jpg" data-caption="Modern architectural door — vertical slat" data-aos="zoom-in" data-aos-delay="80">
             <img src="assets/images/photo-5.jpg" alt="Modern architectural door — vertical slat" loading="lazy">
             <span class="tile__overlay"><span>View</span></span>
           </a>
-          <a class="tile" href="assets/images/photo-8.jpg" data-caption="Chevron sliding door — white finish">
+          <a class="tile" href="assets/images/photo-8.jpg" data-caption="Chevron sliding door — white finish" data-aos="zoom-in" data-aos-delay="160">
             <img src="assets/images/photo-8.jpg" alt="Chevron sliding door — white finish" loading="lazy">
             <span class="tile__overlay"><span>View</span></span>
           </a>
-          <a class="tile tile--wide" href="assets/images/photo-6.jpg" data-caption="Glass sliding barn doors — modern kitchen install">
+          <a class="tile tile--wide" href="assets/images/photo-6.jpg" data-caption="Glass sliding barn doors — modern kitchen install" data-aos="zoom-in" data-aos-delay="0">
             <img src="assets/images/photo-6.jpg" alt="Glass sliding barn doors — modern kitchen install" loading="lazy">
             <span class="tile__overlay"><span>View</span></span>
           </a>
-          <a class="tile" href="assets/images/photo-10.jpg" data-caption="Double sliding barn doors — dark stained finish">
+          <a class="tile" href="assets/images/photo-10.jpg" data-caption="Double sliding barn doors — dark stained finish" data-aos="zoom-in" data-aos-delay="80">
             <img src="assets/images/photo-10.jpg" alt="Double sliding barn doors — dark stained finish" loading="lazy">
             <span class="tile__overlay"><span>View</span></span>
           </a>
-          <a class="tile" href="assets/images/photo-12.jpg" data-caption="Custom gray double sliders — clean modern finish">
+          <a class="tile" href="assets/images/photo-12.jpg" data-caption="Custom gray double sliders — clean modern finish" data-aos="zoom-in" data-aos-delay="160">
             <img src="assets/images/photo-12.jpg" alt="Custom gray double sliders — clean modern finish" loading="lazy">
             <span class="tile__overlay"><span>View</span></span>
           </a>
-          <a class="tile tile--tall" href="assets/images/photo-9.jpg" data-caption="Custom stained single-panel sliding door">
+          <a class="tile tile--tall" href="assets/images/photo-9.jpg" data-caption="Custom stained single-panel sliding door" data-aos="zoom-in" data-aos-delay="0">
             <img src="assets/images/photo-9.jpg" alt="Custom stained single-panel sliding door" loading="lazy">
             <span class="tile__overlay"><span>View</span></span>
           </a>
-          <a class="tile tile--wide" href="assets/images/photo-7.jpg" data-caption="Architectural double doors — arched opening">
+          <a class="tile tile--wide" href="assets/images/photo-7.jpg" data-caption="Architectural double doors — arched opening" data-aos="zoom-in" data-aos-delay="80">
             <img src="assets/images/photo-7.jpg" alt="Architectural double doors — arched opening" loading="lazy">
             <span class="tile__overlay"><span>View</span></span>
           </a>
@@ -325,7 +356,7 @@
     <!-- ============================================================ ETSY / SOCIAL PROOF -->
     <section class="section etsy" id="etsy">
       <div class="section__inner">
-        <div class="etsy__inner reveal">
+        <div class="etsy__inner" data-aos="fade-up">
           <div class="etsy__copy">
             <p class="eyebrow"><span class="eyebrow__rule"></span>Also on Etsy</p>
             <h2>Search "concealed ghost door" on Etsy — you'll find us.</h2>
@@ -334,7 +365,7 @@
           <div class="etsy__actions">
             <a href="https://www.etsy.com/shop/BarnDoorsHouston" target="_blank" rel="noopener noreferrer" class="btn btn--dark btn--lg">
               Visit our Etsy shop
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
             </a>
             <span class="etsy__note">Ships nationwide from Houston, TX</span>
           </div>
@@ -345,34 +376,34 @@
     <!-- ============================================================ PROCESS -->
     <section class="section process" id="process">
       <div class="section__inner">
-        <header class="section__head section__head--center reveal">
+        <header class="section__head section__head--center" data-aos="fade-up">
           <p class="eyebrow eyebrow--center"><span class="eyebrow__rule"></span>How it works<span class="eyebrow__rule"></span></p>
           <h2>Five steps from idea to installed.</h2>
           <p class="section__lede section__lede--center">Simple, transparent, and built around your measurements — not a catalog size chart.</p>
         </header>
 
         <ol class="steps">
-          <li class="step reveal">
+          <li class="step" data-aos="fade-up" data-aos-delay="0">
             <div class="step__num">1</div>
             <h3>Send measurements</h3>
             <p>Text or email your opening dimensions — width, height, and a couple of photos. That's the first move.</p>
           </li>
-          <li class="step reveal">
+          <li class="step" data-aos="fade-up" data-aos-delay="100">
             <div class="step__num">2</div>
             <h3>Pick a design</h3>
             <p>Choose a style from our portfolio or send us a reference — a sketch, a Pinterest board, a photo. Glass, wood, or mixed.</p>
           </li>
-          <li class="step reveal">
+          <li class="step" data-aos="fade-up" data-aos-delay="200">
             <div class="step__num">3</div>
             <h3>Built to your inch</h3>
             <p>Solid-wood construction, milled and finished in our Houston shop — sized precisely to your opening, up to 10 feet tall.</p>
           </li>
-          <li class="step reveal">
+          <li class="step" data-aos="fade-up" data-aos-delay="300">
             <div class="step__num">4</div>
             <h3>Works with your trim</h3>
             <p>Our concealed hardware accommodates your existing door trim — no tear-out, less mess, less labor, lower cost.</p>
           </li>
-          <li class="step reveal">
+          <li class="step" data-aos="fade-up" data-aos-delay="400">
             <div class="step__num">5</div>
             <h3>Custom stain match</h3>
             <p>Match your floors, cabinets, or wall color. Painted, stained, or oiled — finished the way it needs to be for the room it lives in.</p>
@@ -384,16 +415,16 @@
     <!-- ============================================================ CRAFT SHOWCASE -->
     <section class="section craft" id="craft">
       <div class="craft__inner">
-        <div class="craft__media reveal">
+        <div class="craft__media" data-aos="zoom-in">
           <div class="craft__frame">
             <img src="assets/images/photo-11.jpg" alt="Signature Houston's Barn Doors craftsmanship" loading="lazy">
             <div class="craft__badge">
               <div class="craft__badge-num">10&nbsp;ft</div>
-              <div class="craft__badge-label">Max height —<br>3× the standard import</div>
+              <div class="craft__badge-label">Max height —<br>3&times; the standard import</div>
             </div>
           </div>
         </div>
-        <div class="craft__copy reveal">
+        <div class="craft__copy" data-aos="fade-up" data-aos-delay="150">
           <p class="eyebrow"><span class="eyebrow__rule"></span>Why us</p>
           <h2>Made here. By us. For homes that expect more.</h2>
           <p>Imported doors come in a handful of sizes and a lot of promises. Ours are milled, sanded, stained, and hardware-fit in our Houston shop — for the room they'll live in, by the people who'll install them.</p>
@@ -420,7 +451,7 @@
             </li>
           </ul>
           <a href="#contact" class="btn btn--dark btn--lg">Start My Project
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
       </div>
@@ -429,15 +460,15 @@
     <!-- ============================================================ CTA STRIP -->
     <section class="cta-strip">
       <div class="cta-strip__inner">
-        <div class="cta-strip__copy">
+        <div class="cta-strip__copy" data-aos="fade-up">
           <p class="eyebrow eyebrow--light"><span class="eyebrow__rule"></span>Custom quote</p>
           <h2>Send your measurements. We'll take it from there.</h2>
           <p>Tell us about your opening. We'll send back a price, a timeline, and a design conversation — no obligation.</p>
         </div>
-        <div class="cta-strip__actions">
+        <div class="cta-strip__actions" data-aos="fade-up" data-aos-delay="150">
           <a href="#contact" class="btn btn--accent btn--lg">Request a Quote</a>
           <a href="tel:8329310468" class="btn btn--ghost-light btn--lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.88a16 16 0 0 0 6.29 6.29l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             832-931-0468
           </a>
         </div>
@@ -447,14 +478,14 @@
     <!-- ============================================================ CONTACT -->
     <section class="section contact-section" id="contact">
       <div class="section__inner">
-        <header class="section__head reveal">
+        <header class="section__head" data-aos="fade-up">
           <p class="eyebrow"><span class="eyebrow__rule"></span>Get in touch</p>
           <h2>Start your custom door.</h2>
           <p class="section__lede">Send your measurements, your inspiration, and any questions. We'll respond with pricing, timeline, and next steps — no pressure.</p>
         </header>
 
         <div class="contact">
-          <aside class="contact__side reveal">
+          <aside class="contact__side" data-aos="fade-up">
             <div class="contact__card">
               <h3 class="contact__card-title">Talk to us directly</h3>
 
@@ -505,7 +536,7 @@
             </div>
           </aside>
 
-          <form class="contact__form reveal" action="https://formspree.io/f/houstonbarndoors" method="POST">
+          <form class="contact__form" action="https://formspree.io/f/houstonbarndoors" method="POST" data-aos="fade-up" data-aos-delay="150">
             <div class="form__row">
               <label for="name">Your name</label>
               <input type="text" id="name" name="name" placeholder="Jane Smith" autocomplete="name" required>
@@ -546,7 +577,7 @@
             </div>
             <button type="submit" class="btn btn--accent btn--full btn--lg">
               Send My Custom Quote Request
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
             <p class="form__disclaimer">We reply within 1 business day. Your info stays with us — never sold.</p>
           </form>
@@ -561,7 +592,9 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <span class="footer__mark" aria-hidden="true">
-          <img src="assets/logo/hb-mark-light.svg" alt="" width="48" height="48">
+          <span class="footer__mark-crop">
+            <img src="assets/logo/hb-logo.jpg" alt="" class="footer__logo-img" width="68" height="68" loading="lazy" decoding="async">
+          </span>
         </span>
         <div class="footer__wordmark">Houston's Barn Doors</div>
         <p class="footer__tag">Custom concealed ghost doors &amp; modern sliding barn doors — handmade in Houston, Texas. Shipping nationwide.</p>
@@ -615,6 +648,7 @@
     </figure>
   </div>
 
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="scripts.js" defer></script>
 </body>
 </html>
