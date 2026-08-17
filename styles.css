@@ -1194,13 +1194,6 @@ a.contact__row:hover { transform: translateX(4px); }
   .craft__badge-num { font-size: 1.8rem; }
 }
 
-/* ============================================================ HERO NO-IMAGE VARIANT */
-.hero--no-image {
-  background: linear-gradient(160deg, var(--charcoal) 0%, var(--charcoal-3) 40%, #1a1510 100%);
-  min-height: 85vh;
-}
-.hero--no-image .hero__bg { display: none; }
-
 /* ============================================================ PLACEHOLDER GALLERY */
 .placeholder-gallery {
   margin: 3rem 0;
