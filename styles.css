@@ -1194,6 +1194,149 @@ a.contact__row:hover { transform: translateX(4px); }
   .craft__badge-num { font-size: 1.8rem; }
 }
 
+/* ============================================================ HERO NO-IMAGE VARIANT */
+.hero--no-image {
+  background: linear-gradient(160deg, var(--charcoal) 0%, var(--charcoal-3) 40%, #1a1510 100%);
+  min-height: 85vh;
+}
+.hero--no-image .hero__bg { display: none; }
+
+/* ============================================================ PLACEHOLDER GALLERY */
+.placeholder-gallery {
+  margin: 3rem 0;
+}
+.placeholder-gallery__message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 2rem;
+  border: 2px dashed var(--dark-border, rgba(245,240,235,0.12));
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  text-align: center;
+}
+.section:not(.section--dark) .placeholder-gallery__message {
+  border-color: var(--border);
+  background: rgba(0,0,0,0.02);
+}
+.placeholder-gallery__icon {
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+.placeholder-gallery__text {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--dark-muted, var(--muted));
+  letter-spacing: 0.02em;
+}
+.section:not(.section--dark) .placeholder-gallery__text {
+  color: var(--muted);
+}
+
+/* ============================================================ BARN CARD PLACEHOLDER */
+.barn__card--placeholder .barn__card-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4/3;
+  background: var(--bg-2);
+  border-radius: 10px;
+  border: 2px dashed var(--border);
+  margin-bottom: 1.2rem;
+}
+.barn__card--placeholder .barn__card-placeholder span {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+/* ============================================================ POCKET DOORS SECTION */
+.pocket__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 768px) {
+  .pocket__features { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+.pocket__feature {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.pocket__feature-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+.pocket__feature h4 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--dark-ink);
+  margin-bottom: 0.4rem;
+}
+.pocket__feature p {
+  font-size: 0.95rem;
+  color: var(--dark-muted);
+  line-height: 1.6;
+}
+.pocket__cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ============================================================ DOG FURNITURE CRATES SECTION */
+.dog-crates__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 768px) {
+  .dog-crates__features { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+.dog-crates__feature {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.dog-crates__feature-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+.dog-crates__feature h4 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.dog-crates__feature p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.dog-crates__cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
 /* ============================================================ MOTION PREFERENCES */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
