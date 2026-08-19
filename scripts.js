@@ -94,7 +94,6 @@
   }
 
   /* ---------- Gallery lightbox ---------- */
-  const gallery       = $('#gallery');
   const lightbox      = $('#lightbox');
   const lightboxImg   = $('#lightboxImg');
   const lightboxCap   = $('#lightboxCaption');
@@ -102,17 +101,20 @@
   const lightboxPrev  = $('#lightboxPrev');
   const lightboxNext  = $('#lightboxNext');
 
-  if (gallery && lightbox && lightboxImg) {
-    const tiles = $$('.tile', gallery);
+  if (lightbox && lightboxImg) {
+    // Collect all lightbox-eligible items: .tile (portfolio) + .ghost-gallery__item
+    const allItems = $$('.tile[href], .ghost-gallery__item[href]');
     let currentIndex = 0;
     let lastFocused = null;
+    let activeSet = allItems; // which subset we're navigating
 
-    const openAt = (index) => {
+    const openAt = (index, items) => {
+      activeSet = items || activeSet;
       currentIndex = index;
-      const tile = tiles[index];
-      lightboxImg.src = tile.getAttribute('href');
-      lightboxImg.alt = tile.querySelector('img')?.alt || '';
-      if (lightboxCap) lightboxCap.textContent = tile.getAttribute('data-caption') || '';
+      const item = activeSet[index];
+      lightboxImg.src = item.getAttribute('href');
+      lightboxImg.alt = item.querySelector('img')?.alt || '';
+      if (lightboxCap) lightboxCap.textContent = item.getAttribute('data-caption') || '';
       lightbox.classList.add('is-open');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -127,17 +129,32 @@
     };
 
     const step = (dir) => {
-      const next = (currentIndex + dir + tiles.length) % tiles.length;
+      const next = (currentIndex + dir + activeSet.length) % activeSet.length;
       openAt(next);
     };
 
-    tiles.forEach((tile, i) => {
-      tile.addEventListener('click', (e) => {
+    // Ghost gallery items
+    const ghostItems = $$('.ghost-gallery__item[href]');
+    ghostItems.forEach((item, i) => {
+      item.addEventListener('click', (e) => {
         e.preventDefault();
-        lastFocused = tile;
-        openAt(i);
+        lastFocused = item;
+        openAt(i, ghostItems);
       });
     });
+
+    // Portfolio gallery tiles
+    const gallery = $('#gallery');
+    if (gallery) {
+      const tiles = $$('.tile', gallery);
+      tiles.forEach((tile, i) => {
+        tile.addEventListener('click', (e) => {
+          e.preventDefault();
+          lastFocused = tile;
+          openAt(i, tiles);
+        });
+      });
+    }
 
     lightboxClose?.addEventListener('click', close);
     lightboxPrev?.addEventListener('click', () => step(-1));
