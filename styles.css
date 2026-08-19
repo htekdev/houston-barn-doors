@@ -1194,6 +1194,62 @@ a.contact__row:hover { transform: translateX(4px); }
   .craft__badge-num { font-size: 1.8rem; }
 }
 
+/* ============================================================ GHOST DOOR GALLERY */
+.ghost-gallery {
+  margin: clamp(32px, 4vw, 56px) 0;
+}
+.ghost-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.ghost-gallery__item {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.04);
+  aspect-ratio: auto;
+}
+.ghost-gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: rgba(10,10,10,0.6);
+  transition: transform 600ms var(--ease);
+}
+.ghost-gallery__item:hover img {
+  transform: scale(1.03);
+}
+/* Lightbox overlay on hover */
+.ghost-gallery__item::after {
+  content: 'View';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10,10,10,0.45);
+  color: #fff;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 300ms var(--ease);
+  border: 1px solid rgba(255,255,255,0.3);
+  margin: 8px;
+  border-radius: 2px;
+}
+.ghost-gallery__item:hover::after {
+  opacity: 1;
+}
+@media (max-width: 900px) {
+  .ghost-gallery__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .ghost-gallery__grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
 /* ============================================================ PLACEHOLDER GALLERY */
 .placeholder-gallery {
   margin: 3rem 0;
