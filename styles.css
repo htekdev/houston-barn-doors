@@ -336,12 +336,13 @@ strong { font-weight: 500; color: var(--ink); }
   inset: 0;
   background-image: url("assets/images/ghost-door-hero-ai.jpg");
   background-size: cover;
-  background-position: center 42%;
+  /* centered (not top-weighted) + no extra zoom, so the image isn't cut off top/bottom (Paula's feedback 9/8) */
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   z-index: -2;
   will-change: transform;
-  transform: scale(1.06);
+  transform: scale(1.0);
 }
 
 .hero__scrim {
@@ -1159,7 +1160,7 @@ a.contact__row:hover { transform: translateX(4px); }
   .nav__cta .btn--sm { padding: 10px 13px; }
 
   .hero { padding: calc(var(--nav-h) + 30px) 20px 110px; }
-  .hero__bg { background-position: center 45%; transform: scale(1.14); }
+  .hero__bg { background-position: center center; transform: scale(1.0); }
   .hero__eyebrow { gap: 10px; font-size: 0.56rem; letter-spacing: 0.28em; margin-bottom: 24px; }
   .hero__eyebrow-rule { width: 24px; }
   .hero__title { margin-bottom: 24px; }
