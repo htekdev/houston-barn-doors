@@ -93,6 +93,58 @@
     });
   }
 
+  /* ---------- Products dropdown ----------
+     Desktop: a real disclosure — click to toggle, hover/focus also opens it
+     via CSS. Stacked (<=1024px): the product links are always rendered, so the
+     button is inert and just acts as a section heading. The media query is the
+     single source of truth for which mode we're in, mirroring styles.css. */
+  const groupToggle = $('#navProductsToggle');
+  const groupMenu   = $('#navProductsMenu');
+  if (groupToggle && groupMenu) {
+    const group   = groupToggle.closest('.nav__group');
+    const stacked = window.matchMedia('(max-width: 1024px)');
+
+    const closeGroup = () => {
+      groupMenu.classList.remove('is-open');
+      groupToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const syncGroup = () => {
+      groupMenu.classList.remove('is-open');
+      if (stacked.matches) {
+        // Links are visible regardless, so advertise them as expanded and keep
+        // the inert heading out of the tab order.
+        groupToggle.setAttribute('aria-expanded', 'true');
+        groupToggle.setAttribute('tabindex', '-1');
+      } else {
+        groupToggle.setAttribute('aria-expanded', 'false');
+        groupToggle.removeAttribute('tabindex');
+      }
+    };
+
+    syncGroup();
+    stacked.addEventListener('change', syncGroup);
+
+    groupToggle.addEventListener('click', () => {
+      if (stacked.matches) return;
+      const open = groupMenu.classList.toggle('is-open');
+      groupToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (stacked.matches) return;
+      if (group && !group.contains(e.target)) closeGroup();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape' || stacked.matches) return;
+      if (groupMenu.classList.contains('is-open')) {
+        closeGroup();
+        groupToggle.focus();
+      }
+    });
+  }
+
   /* ---------- Gallery lightbox ---------- */
   const lightbox      = $('#lightbox');
   const lightboxImg   = $('#lightboxImg');
