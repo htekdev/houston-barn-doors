@@ -326,12 +326,18 @@ strong { font-weight: 500; color: var(--ink); }
 .nav__group-toggle[aria-expanded="true"] .nav__group-chevron { transform: rotate(180deg); }
 
 /* Invisible bridge so the pointer can travel from the toggle to the menu
-   without crossing a dead gap and closing it. */
-.nav__group:hover::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 100%;
-  height: 16px;
+   without crossing a dead gap. Desktop only: below the breakpoint the group is
+   position:static inside the fixed panel, where an absolutely positioned
+   pseudo-element would add phantom scroll height. Gated by min-width rather
+   than reset later, because `.nav__group:hover::after` (0,2,1) outranks any
+   plain `.nav__group::after` reset (0,1,1) and would never be overridden. */
+@media (min-width: 1025px) {
+  .nav__group:hover::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    height: 16px;
+  }
 }
 
 .nav__group-menu {
@@ -353,8 +359,10 @@ strong { font-weight: 500; color: var(--ink); }
   transition: opacity 240ms var(--ease), transform 240ms var(--ease), visibility 240ms;
   z-index: 60;
 }
-.nav__group:hover .nav__group-menu,
-.nav__group:focus-within .nav__group-menu,
+/* `.is-open` is the single source of truth for the open state. Hover and focus
+   are handled in scripts.js so that the visible state and aria-expanded can
+   never disagree — driving visibility from :hover/:focus-within in CSS made
+   click-to-close and Escape silent no-ops. */
 .nav__group-menu.is-open {
   opacity: 1;
   visibility: visible;
@@ -1161,6 +1169,9 @@ a.contact__row:hover { transform: translateX(4px); }
   .nav__links { gap: 22px; }
   .nav__links a { font-size: 0.74rem; letter-spacing: 0.09em; }
   .nav__group-toggle { font-size: 0.74rem; letter-spacing: 0.09em; }
+  /* `.nav__links a` above also matches the dropdown items, which would make
+     them larger here than at full width. Keep them on their own scale. */
+  .nav__group-menu a { font-size: 0.72rem; letter-spacing: 0.1em; }
 }
 
 /* Nav collapses to the hamburger at the standard tablet breakpoint. The six
@@ -1202,7 +1213,6 @@ a.contact__row:hover { transform: translateX(4px); }
      being a control and becomes a section heading. scripts.js mirrors this by
      pinning aria-expanded="true" and removing it from the tab order. */
   .nav__group { position: static; }
-  .nav__group::after { content: none; }
   .nav__group-toggle {
     width: 100%;
     justify-content: flex-start;
