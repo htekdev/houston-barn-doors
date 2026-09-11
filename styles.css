@@ -514,6 +514,36 @@ strong { font-weight: 500; color: var(--ink); }
   animation-delay: 520ms;
 }
 
+/* Shipping note. Scoped with :has() so the other pages' heroes, which have no
+   shipping line, keep the original 48px lede spacing untouched. */
+.hero__lede:has(+ .hero__ship) { margin-bottom: 22px; }
+
+.hero__ship {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  padding: 10px 18px;
+  border: 1px solid rgba(245, 240, 235, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  color: rgba(245, 240, 235, 0.92);
+  font-size: clamp(0.87rem, 1.1vw, 0.97rem);
+  font-weight: 300;
+  line-height: 1.45;
+  text-align: left;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+  animation: heroIn 1200ms var(--ease) both;
+  animation-delay: 450ms;
+}
+
+.hero__ship svg { flex: none; color: var(--gold-light, #d9b98a); }
+
+@media (max-width: 560px) {
+  .hero__ship { padding: 10px 15px; border-radius: 16px; }
+}
+
 @keyframes heroIn {
   from { opacity: 0; transform: translateY(30px); filter: blur(6px); }
   to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
