@@ -278,9 +278,9 @@
   margin: 0;
 }
 
-/* ---- CTA ---- */
+/* ---- CTA (gallery pages carry actions only — no headings or copy) ---- */
 .door-cta {
-  padding: 5rem 2rem;
+  padding: 3.5rem 2rem;
   background: var(--charcoal);
   text-align: center;
 }
@@ -288,22 +288,6 @@
 .door-cta__inner {
   max-width: 700px;
   margin: 0 auto;
-}
-
-.door-cta h2 {
-  font-family: var(--serif);
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  font-weight: 500;
-  color: #fff;
-  margin: 0 0 1rem;
-}
-
-.door-cta p {
-  font-family: var(--sans);
-  font-size: 1.05rem;
-  color: var(--dark-muted);
-  line-height: 1.6;
-  margin: 0 0 2rem;
 }
 
 .door-cta__actions {
