@@ -297,6 +297,79 @@ strong { font-weight: 500; color: var(--ink); }
 .nav__links a:hover { color: #fff; }
 .nav__links a:hover::after { transform: scaleX(1); }
 
+/* ---- Products dropdown -------------------------------------------------
+   Six product pages no longer fit as flat nav items on a laptop line, so they
+   live in a single dropdown. Adding a seventh product page is now free. */
+.nav__group { position: relative; }
+.nav__group-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  color: rgba(245, 240, 235, 0.72);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 6px 0;
+  transition: color 280ms var(--ease);
+}
+.nav__group:hover .nav__group-toggle,
+.nav__group-toggle:hover,
+.nav__group-toggle:focus-visible,
+.nav__group.is-current .nav__group-toggle { color: #fff; }
+.nav__group-chevron { transition: transform 280ms var(--ease); }
+.nav__group-toggle[aria-expanded="true"] .nav__group-chevron { transform: rotate(180deg); }
+
+/* Invisible bridge so the pointer can travel from the toggle to the menu
+   without crossing a dead gap and closing it. */
+.nav__group:hover::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  height: 16px;
+}
+
+.nav__group-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  display: flex;
+  flex-direction: column;
+  min-width: 212px;
+  padding: 10px 0;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 240, 235, 0.09);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 240ms var(--ease), transform 240ms var(--ease), visibility 240ms;
+  z-index: 60;
+}
+.nav__group:hover .nav__group-menu,
+.nav__group:focus-within .nav__group-menu,
+.nav__group-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav__group-menu a {
+  padding: 11px 22px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+.nav__group-menu a::after { display: none; }
+.nav__group-menu a:hover { color: #fff; background: rgba(245, 240, 235, 0.05); }
+.nav__group-menu a.active { color: var(--sand); }
+
 .nav__cta { display: flex; align-items: center; gap: 12px; justify-self: end; }
 
 .nav__toggle {
@@ -1083,17 +1156,19 @@ a.contact__row:hover { transform: translateX(4px); }
 
 /* Nav gets tight before the tablet breakpoint — drop the sub-wordmark early
    so the logo, links and CTA stay on a single line. */
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .nav__wordmark-sub { display: none; }
-  .nav__links { gap: 26px; }
+  .nav__links { gap: 22px; }
+  .nav__links a { font-size: 0.74rem; letter-spacing: 0.09em; }
+  .nav__group-toggle { font-size: 0.74rem; letter-spacing: 0.09em; }
 }
 
-/* ============================================================ RESPONSIVE — TABLET */
+/* Nav collapses to the hamburger at the standard tablet breakpoint. The six
+   product pages live in the Products dropdown rather than as flat nav items,
+   so Home / Products / Contact fits comfortably on a laptop line — the earlier
+   1180px early-collapse workaround is no longer needed. */
 @media (max-width: 1024px) {
-  :root { --nav-h: 90px; }
-
-  .nav__mark { width: 46px; height: 46px; padding: 4px; }
-  .nav__inner { width: calc(100% - 36px); grid-template-columns: auto auto; justify-content: space-between; }
+  .nav__inner { grid-template-columns: auto auto; justify-content: space-between; }
   .nav__links {
     position: fixed;
     top: var(--nav-h); left: 0; right: 0;
@@ -1104,18 +1179,68 @@ a.contact__row:hover { transform: translateX(4px); }
     -webkit-backdrop-filter: blur(20px);
     padding: 0 24px;
     max-height: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: max-height 460ms var(--ease), padding 460ms var(--ease);
     border-bottom: 1px solid rgba(245, 240, 235, 0);
   }
   .nav__links.is-open {
-    max-height: 460px;
+    max-height: min(760px, calc(100vh - var(--nav-h)));
     padding: 14px 24px 26px;
     border-bottom-color: rgba(245, 240, 235, 0.09);
   }
-  .nav__links a { padding: 14px 0; font-size: 0.86rem; border-bottom: 1px solid rgba(245,240,235,0.06); }
+  .nav__links a {
+    padding: 14px 0;
+    font-size: 0.86rem;
+    letter-spacing: 0.12em;
+    border-bottom: 1px solid rgba(245,240,235,0.06);
+  }
   .nav__links a::after { display: none; }
   .nav__toggle { display: flex; }
+
+  /* In the stacked panel the products are always visible, so the toggle stops
+     being a control and becomes a section heading. scripts.js mirrors this by
+     pinning aria-expanded="true" and removing it from the tab order. */
+  .nav__group { position: static; }
+  .nav__group::after { content: none; }
+  .nav__group-toggle {
+    width: 100%;
+    justify-content: flex-start;
+    cursor: default;
+    pointer-events: none;
+    color: rgba(245, 240, 235, 0.42);
+    font-size: 0.64rem;
+    letter-spacing: 0.22em;
+    padding: 18px 0 4px;
+  }
+  .nav__group-chevron { display: none; }
+  .nav__group-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    min-width: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .nav__group-menu a {
+    padding: 14px 0 14px 14px;
+    font-size: 0.86rem;
+    letter-spacing: 0.12em;
+    border-bottom: 1px solid rgba(245,240,235,0.06);
+  }
+}
+
+/* ============================================================ RESPONSIVE — TABLET */
+@media (max-width: 1024px) {
+  :root { --nav-h: 90px; }
+
+  .nav__mark { width: 46px; height: 46px; padding: 4px; }
+  .nav__inner { width: calc(100% - 36px); }
   .nav__wordmark-sub { display: none; }
 
   .ghost__grid { grid-template-columns: 1fr; }

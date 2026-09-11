@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Houston's Barn Doors | Custom Ghost Doors, Barn Doors & More — Katy, TX</title>
-  <meta name="description" content="Handcrafted concealed ghost doors, sliding barn doors, pocket doors, and custom dog furniture crates — made in Katy, TX. Solid wood, any design, up to 10 feet tall.">
+  <meta name="description" content="Handcrafted concealed ghost doors, sliding barn doors, pocket doors, solid wooden doors, dog furniture crates, and custom wooden tables — made in Katy, TX. Solid wood, any design, up to 10 feet tall.">
   <meta name="theme-color" content="#0a0a0a">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Houston's Barn Doors — Custom Doors & More, Katy TX">
-  <meta property="og:description" content="Where doorways become art. Handcrafted concealed ghost doors, sliding barn doors, pocket doors, and dog furniture crates. Solid American wood.">
+  <meta property="og:description" content="Where doorways become art. Handcrafted concealed ghost doors, sliding barn doors, pocket doors, solid wooden doors, dog furniture crates, and custom wooden tables. Solid American wood.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/ghost-doors/ghost-1.jpg">
 
@@ -38,20 +38,30 @@
       <a href="index.html" class="nav__logo" aria-label="Houston's Barn Doors home">
         <span class="nav__mark" aria-hidden="true">
           <span class="nav__mark-crop">
-            <img src="assets/logo/hb-logo.jpg" alt="" class="nav__logo-img" width="52" height="52" fetchpriority="high">
+            <img src="assets/logo/hb-logo.jpg" alt="" class="nav__logo-img" width="52" height="52">
           </span>
         </span>
         <span class="nav__wordmark">
           <span class="nav__wordmark-primary">Houston's Barn Doors</span>
-          <span class="nav__wordmark-sub">Custom Doors & More · Katy, TX</span>
+          <span class="nav__wordmark-sub">Custom Doors &amp; More · Katy, TX</span>
         </span>
       </a>
       <div class="nav__links" id="navLinks">
         <a href="index.html" class="active">Home</a>
-        <a href="doors/ghost-doors.html">Ghost Doors</a>
-        <a href="doors/barn-doors.html">Barn Doors</a>
-        <a href="doors/pocket-doors.html">Pocket Doors</a>
-        <a href="doors/dog-crates.html">Dog Crates</a>
+        <div class="nav__group">
+          <button type="button" class="nav__group-toggle" id="navProductsToggle" aria-expanded="false" aria-controls="navProductsMenu">
+            <span>Products</span>
+            <svg class="nav__group-chevron" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__group-menu" id="navProductsMenu" role="group" aria-labelledby="navProductsToggle">
+            <a href="doors/ghost-doors.html">Ghost Doors</a>
+            <a href="doors/barn-doors.html">Barn Doors</a>
+            <a href="doors/pocket-doors.html">Pocket Doors</a>
+            <a href="doors/wooden-doors.html">Wooden Doors</a>
+            <a href="doors/wooden-tables.html">Wooden Tables</a>
+            <a href="doors/dog-crates.html">Dog Crates</a>
+          </div>
+        </div>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav__cta">
@@ -80,8 +90,9 @@
         Where doorways<br>become <em>art.</em>
       </h1>
       <p class="hero__lede reveal">
-        Custom concealed ghost doors, sliding barn doors, pocket doors, and dog furniture crates —
-        all handcrafted from solid American wood in our Katy shop.
+        Custom concealed ghost doors, sliding barn doors, pocket doors, solid wooden doors,
+        dog furniture crates, and custom wooden tables — all handcrafted from solid American
+        wood in our Katy shop.
       </p>
       <div class="hero__ctas reveal">
         <a href="#products" class="btn btn--accent btn--lg">
@@ -107,7 +118,7 @@
       <div class="home-products__inner">
         <header class="home-products__header" data-aos="fade-up">
           <h2>What we build</h2>
-          <p>Every piece is custom-made in our Katy, TX shop — solid wood, built to your exact specifications. Explore our door types below.</p>
+          <p>Every piece is custom-made in our Katy, TX shop — solid wood, built to your exact specifications. Explore what we build below.</p>
         </header>
 
         <div class="home-products__grid">
@@ -129,7 +140,7 @@
           <!-- Barn Doors -->
           <a href="doors/barn-doors.html" class="home-product-card" data-aos="fade-up" data-aos-delay="100">
             <div class="home-product-card__img">
-              <img src="assets/images/ghost-doors/ghost-8.jpg" alt="Custom sliding barn door" loading="lazy">
+              <img src="assets/images/barn-doors/barn-1.jpg" alt="Custom sliding barn door" loading="lazy">
             </div>
             <div class="home-product-card__body">
               <h3 class="home-product-card__title">Custom Sliding Barn Doors</h3>
@@ -143,8 +154,8 @@
 
           <!-- Pocket Doors -->
           <a href="doors/pocket-doors.html" class="home-product-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="home-product-card__img home-product-card__img--placeholder">
-              <span>🚪</span>
+            <div class="home-product-card__img">
+              <img src="assets/images/pocket-doors/pocket-3.jpg" alt="Custom pocket door installation" loading="lazy">
             </div>
             <div class="home-product-card__body">
               <h3 class="home-product-card__title">Custom Pocket Doors</h3>
@@ -157,15 +168,44 @@
           </a>
 
           <!-- Dog Furniture Crates -->
-          <a href="doors/dog-crates.html" class="home-product-card" data-aos="fade-up" data-aos-delay="300">
+          <a href="doors/wooden-doors.html" class="home-product-card" data-aos="fade-up" data-aos-delay="300">
             <div class="home-product-card__img home-product-card__img--placeholder">
-              <span>🐾</span>
+              <span>🚪</span>
+            </div>
+            <div class="home-product-card__body">
+              <h3 class="home-product-card__title">Custom Wooden Doors</h3>
+              <p class="home-product-card__desc">Solid-wood interior, pantry, closet and double doors — built to your exact opening instead of trimmed down from a big-box size.</p>
+              <span class="home-product-card__link">
+                View wooden doors
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="doors/dog-crates.html" class="home-product-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="home-product-card__img">
+              <img src="assets/images/dog-crates/crate-3.jpg" alt="Handcrafted dog furniture crate" loading="lazy">
             </div>
             <div class="home-product-card__body">
               <h3 class="home-product-card__title">Dog Furniture Crates</h3>
               <p class="home-product-card__desc">Handcrafted wooden crates that double as beautiful furniture. End tables, credenzas, built-ins — designed to match your home.</p>
               <span class="home-product-card__link">
                 View dog crates
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Wooden Tables -->
+          <a href="doors/wooden-tables.html" class="home-product-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="home-product-card__img home-product-card__img--placeholder">
+              <span>🪵</span>
+            </div>
+            <div class="home-product-card__body">
+              <h3 class="home-product-card__title">Custom Wooden Tables</h3>
+              <p class="home-product-card__desc">Dining, coffee, console and entry tables built from the same solid wood as our doors — sized to your room and finished to match your home.</p>
+              <span class="home-product-card__link">
+                View wooden tables
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </span>
             </div>
@@ -293,13 +333,15 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <img src="assets/logo/hb-logo.jpg" alt="Houston's Barn Doors" class="footer__logo" width="48" height="48">
-        <p>Houston's Barn Doors<br><span class="footer__sub">Custom Doors & More · Katy, TX</span></p>
+        <p>Houston's Barn Doors<br><span class="footer__sub">Custom Doors &amp; More · Katy, TX</span></p>
       </div>
       <div class="footer__links">
         <a href="index.html">Home</a>
         <a href="doors/ghost-doors.html">Ghost Doors</a>
         <a href="doors/barn-doors.html">Barn Doors</a>
         <a href="doors/pocket-doors.html">Pocket Doors</a>
+        <a href="doors/wooden-doors.html">Wooden Doors</a>
+        <a href="doors/wooden-tables.html">Wooden Tables</a>
         <a href="doors/dog-crates.html">Dog Crates</a>
         <a href="#contact">Contact</a>
       </div>

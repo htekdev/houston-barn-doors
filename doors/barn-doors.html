@@ -10,6 +10,10 @@
   <meta property="og:title" content="Custom Sliding Barn Doors — Houston's Barn Doors">
   <meta property="og:description" content="Handcrafted sliding barn doors in Katy, TX. Panel, glass, or custom design. Solid wood, any size.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="../assets/images/barn-doors/barn-3.jpg">
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="../assets/images/barn-doors/barn-3.jpg" fetchpriority="high">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,15 +38,25 @@
         </span>
         <span class="nav__wordmark">
           <span class="nav__wordmark-primary">Houston's Barn Doors</span>
-          <span class="nav__wordmark-sub">Custom Doors & More · Katy, TX</span>
+          <span class="nav__wordmark-sub">Custom Doors &amp; More · Katy, TX</span>
         </span>
       </a>
       <div class="nav__links" id="navLinks">
         <a href="../index.html">Home</a>
-        <a href="ghost-doors.html">Ghost Doors</a>
-        <a href="barn-doors.html" class="active">Barn Doors</a>
-        <a href="pocket-doors.html">Pocket Doors</a>
-        <a href="dog-crates.html">Dog Crates</a>
+        <div class="nav__group is-current">
+          <button type="button" class="nav__group-toggle" id="navProductsToggle" aria-expanded="false" aria-controls="navProductsMenu">
+            <span>Products</span>
+            <svg class="nav__group-chevron" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__group-menu" id="navProductsMenu" role="group" aria-labelledby="navProductsToggle">
+            <a href="../doors/ghost-doors.html">Ghost Doors</a>
+            <a href="../doors/barn-doors.html" class="active">Barn Doors</a>
+            <a href="../doors/pocket-doors.html">Pocket Doors</a>
+            <a href="../doors/wooden-doors.html">Wooden Doors</a>
+            <a href="../doors/wooden-tables.html">Wooden Tables</a>
+            <a href="../doors/dog-crates.html">Dog Crates</a>
+          </div>
+        </div>
         <a href="../index.html#contact">Contact</a>
       </div>
       <div class="nav__cta">
@@ -58,7 +72,8 @@
   </nav>
 
   <!-- HERO -->
-  <header class="door-hero door-hero--placeholder" id="top">
+  <header class="door-hero" id="top">
+    <div class="door-hero__bg" style="background-image: url('../assets/images/barn-doors/barn-3.jpg');" role="img" aria-label="Custom sliding barn doors by Houston's Barn Doors"></div>
     <div class="door-hero__scrim"></div>
     <div class="door-hero__inner">
       <nav class="door-hero__breadcrumb" aria-label="Breadcrumb">
@@ -113,18 +128,75 @@
       </div>
     </section>
 
-    <!-- GALLERY PLACEHOLDER -->
+    <!-- ============================================================ GALLERY -->
     <section class="door-gallery" id="gallery">
       <div class="door-gallery__inner">
         <header class="door-gallery__header" data-aos="fade-up">
           <h2>Barn Door Portfolio</h2>
-          <p>Portfolio photos coming soon — Paula is uploading her latest barn door installations.</p>
+          <p>20 custom sliding barn doors — handcrafted for Houston-area homes. Full photos, no cropping — exactly as installed.</p>
         </header>
-        <div class="door-gallery__placeholder" data-aos="fade-up">
-          <div class="door-gallery__placeholder-box">
-            <span class="door-gallery__placeholder-icon" aria-hidden="true">📷</span>
-            <p>Portfolio photos coming soon</p>
-          </div>
+
+        <div class="door-gallery__grid" data-aos="fade-up">
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-1.jpg" data-caption="Custom sliding barn door — handcrafted in Katy, TX">
+            <img src="../assets/images/barn-doors/barn-1.jpg" alt="Custom sliding barn door — handcrafted in Katy, TX" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-2.jpg" data-caption="Sliding barn door with premium matte-black rail hardware">
+            <img src="../assets/images/barn-doors/barn-2.jpg" alt="Sliding barn door with premium matte-black rail hardware" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-3.jpg" data-caption="Double sliding barn doors — custom sized to the opening">
+            <img src="../assets/images/barn-doors/barn-3.jpg" alt="Double sliding barn doors — custom sized to the opening" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-4.jpg" data-caption="Solid wood barn door — custom pattern and finish">
+            <img src="../assets/images/barn-doors/barn-4.jpg" alt="Solid wood barn door — custom pattern and finish" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-5.jpg" data-caption="Framed glass barn door — custom build">
+            <img src="../assets/images/barn-doors/barn-5.jpg" alt="Framed glass barn door — custom build" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-6.jpg" data-caption="Chevron pattern sliding barn door">
+            <img src="../assets/images/barn-doors/barn-6.jpg" alt="Chevron pattern sliding barn door" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-7.jpg" data-caption="Barn door room divider — solid wood construction">
+            <img src="../assets/images/barn-doors/barn-7.jpg" alt="Barn door room divider — solid wood construction" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-8.jpg" data-caption="Custom barn door install — Houston-area home">
+            <img src="../assets/images/barn-doors/barn-8.jpg" alt="Custom barn door install — Houston-area home" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-9.jpg" data-caption="Custom sliding barn door — handcrafted in Katy, TX">
+            <img src="../assets/images/barn-doors/barn-9.jpg" alt="Custom sliding barn door — handcrafted in Katy, TX" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-10.jpg" data-caption="Sliding barn door with premium matte-black rail hardware">
+            <img src="../assets/images/barn-doors/barn-10.jpg" alt="Sliding barn door with premium matte-black rail hardware" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-11.jpg" data-caption="Double sliding barn doors — custom sized to the opening">
+            <img src="../assets/images/barn-doors/barn-11.jpg" alt="Double sliding barn doors — custom sized to the opening" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-12.jpg" data-caption="Solid wood barn door — custom pattern and finish">
+            <img src="../assets/images/barn-doors/barn-12.jpg" alt="Solid wood barn door — custom pattern and finish" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-13.jpg" data-caption="Framed glass barn door — custom build">
+            <img src="../assets/images/barn-doors/barn-13.jpg" alt="Framed glass barn door — custom build" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-14.jpg" data-caption="Chevron pattern sliding barn door">
+            <img src="../assets/images/barn-doors/barn-14.jpg" alt="Chevron pattern sliding barn door" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-15.jpg" data-caption="Barn door room divider — solid wood construction">
+            <img src="../assets/images/barn-doors/barn-15.jpg" alt="Barn door room divider — solid wood construction" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-16.jpg" data-caption="Custom barn door install — Houston-area home">
+            <img src="../assets/images/barn-doors/barn-16.jpg" alt="Custom barn door install — Houston-area home" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-17.jpg" data-caption="Custom sliding barn door — handcrafted in Katy, TX">
+            <img src="../assets/images/barn-doors/barn-17.jpg" alt="Custom sliding barn door — handcrafted in Katy, TX" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-18.jpg" data-caption="Sliding barn door with premium matte-black rail hardware">
+            <img src="../assets/images/barn-doors/barn-18.jpg" alt="Sliding barn door with premium matte-black rail hardware" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-19.jpg" data-caption="Double sliding barn doors — custom sized to the opening">
+            <img src="../assets/images/barn-doors/barn-19.jpg" alt="Double sliding barn doors — custom sized to the opening" loading="lazy">
+          </a>
+          <a class="door-gallery__item" href="../assets/images/barn-doors/barn-20.jpg" data-caption="Solid wood barn door — custom pattern and finish">
+            <img src="../assets/images/barn-doors/barn-20.jpg" alt="Solid wood barn door — custom pattern and finish" loading="lazy">
+          </a>
         </div>
       </div>
     </section>
@@ -152,14 +224,16 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <img src="../assets/logo/hb-logo.jpg" alt="Houston's Barn Doors" class="footer__logo" width="48" height="48">
-        <p>Houston's Barn Doors<br><span class="footer__sub">Custom Doors & More · Katy, TX</span></p>
+        <p>Houston's Barn Doors<br><span class="footer__sub">Custom Doors &amp; More · Katy, TX</span></p>
       </div>
       <div class="footer__links">
         <a href="../index.html">Home</a>
-        <a href="ghost-doors.html">Ghost Doors</a>
-        <a href="barn-doors.html">Barn Doors</a>
-        <a href="pocket-doors.html">Pocket Doors</a>
-        <a href="dog-crates.html">Dog Crates</a>
+        <a href="../doors/ghost-doors.html">Ghost Doors</a>
+        <a href="../doors/barn-doors.html">Barn Doors</a>
+        <a href="../doors/pocket-doors.html">Pocket Doors</a>
+        <a href="../doors/wooden-doors.html">Wooden Doors</a>
+        <a href="../doors/wooden-tables.html">Wooden Tables</a>
+        <a href="../doors/dog-crates.html">Dog Crates</a>
         <a href="../index.html#contact">Contact</a>
       </div>
       <div class="footer__contact">
@@ -169,6 +243,18 @@
       <p class="footer__copy">&copy; 2026 Houston's Barn Doors. All rights reserved.</p>
     </div>
   </footer>
+
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <button class="lightbox__prev" aria-label="Previous image">&lsaquo;</button>
+    <button class="lightbox__next" aria-label="Next image">&rsaquo;</button>
+    <div class="lightbox__content">
+      <img class="lightbox__img" src="" alt="">
+      <p class="lightbox__caption"></p>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="../scripts.js"></script>
