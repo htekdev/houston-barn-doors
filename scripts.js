@@ -1,4 +1,4 @@
-/* Houston's Barn Doors — interactive layer
+/* Houstons Barn Doors — interactive layer
    AOS init, sticky nav, mobile menu, cinematic parallax, gallery lightbox. */
 
 (() => {

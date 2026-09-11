@@ -1,5 +1,5 @@
 /* ============================================================
-   HOUSTON'S BARN DOORS — LUXURY REDESIGN
+   Houstons Barn Doors — LUXURY REDESIGN
    Black · white · brass gold (matches the HB barn-rail mark)
    Cinematic scroll · full-screen ghost door hero
    ============================================================ */
@@ -944,6 +944,63 @@ strong { font-weight: 500; color: var(--ink); }
 .craft__list { display: flex; flex-direction: column; gap: 16px; margin: 32px 0 40px; }
 .craft__list li { display: flex; gap: 15px; align-items: flex-start; font-size: 0.97rem; color: var(--muted); line-height: 1.72; font-weight: 300; }
 .craft__check { color: var(--sand); flex-shrink: 0; font-size: 0.9rem; line-height: 1.9; }
+
+/* ============================================================ REVIEWS */
+.reviews { background: var(--bg-2, var(--bg)); }
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.4vw, 34px);
+}
+
+.reviews__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: clamp(28px, 3vw, 40px);
+  background: #fff;
+  border: 1px solid var(--line, rgba(0, 0, 0, 0.08));
+  border-radius: var(--radius-md);
+  transition: box-shadow 260ms ease, transform 260ms ease;
+}
+
+.reviews__card:hover {
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.reviews__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--accent-3);
+  color: var(--accent-2);
+  flex: none;
+}
+
+.reviews__card h3 {
+  font-size: clamp(1.12rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+  margin: 0;
+}
+
+.reviews__card p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.reviews__card .btn { margin-top: 6px; }
+
+@media (max-width: 900px) {
+  .reviews__grid { grid-template-columns: 1fr; }
+}
 
 /* ============================================================ CTA STRIP */
 .cta-strip {
