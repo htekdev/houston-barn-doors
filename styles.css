@@ -259,6 +259,16 @@ strong { font-weight: 500; color: var(--ink); }
 }
 
 .nav__wordmark { display: flex; flex-direction: column; line-height: 1.15; white-space: nowrap; }
+
+/* Pre-existing on main: at <=359px the logo (201px) + call button + hamburger
+   exceed the nav, pushing ~17px of the hamburger outside the viewport where
+   html/body overflow-x: hidden silently clips it. The wordmark is nowrap and
+   neither flex child shrinks, so nothing gives. Drop to the mark alone — the
+   <a aria-label> still announces "Houstons Barn Doors home", and this keeps
+   the tel: button, which is the nav's only one-tap call affordance. */
+@media (max-width: 359px) {
+  .nav__wordmark { display: none; }
+}
 .nav__wordmark-primary {
   font-family: var(--serif);
   font-size: 1.06rem;
@@ -950,59 +960,86 @@ strong { font-weight: 500; color: var(--ink); }
 
 .reviews__grid {
   display: grid;
-  /* auto-fit + a min track that matches the widest card content (the nowrap
-     "Call 832-931-0468" button at ~226px plus 56px of card padding) lets the
-     grid drop to 2 or 1 columns on its own. A fixed repeat(3, 1fr) overflowed
-     and silently clipped the third card between ~901px and ~946px, because
-     1fr floors at min-content and html/body use overflow-x: hidden.
-     min(282px, 100%) keeps it safe on viewports narrower than the track. */
+  /* auto-fit with a min track lets the grid pick its own column count. A fixed
+     repeat(N, 1fr) overflowed and silently clipped the last card on some
+     widths, because 1fr floors at min-content and html/body use
+     overflow-x: hidden. min(282px, 100%) keeps it safe on narrow viewports. */
   grid-template-columns: repeat(auto-fit, minmax(min(282px, 100%), 1fr));
   gap: clamp(20px, 2.4vw, 34px);
 }
 
-.reviews__card {
+/* Four quotes read better as a balanced 2x2 than as 3 + a lone orphan.
+   minmax(0, 1fr) rather than plain 1fr: a bare 1fr floors at min-content,
+   which is what overflowed this grid before. */
+@media (min-width: 900px) {
+  .reviews__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Verbatim customer reviews carried over from the previous site. Deliberately
+   unattributed — the source copy had no names, and inventing them is worse
+   than leaving them anonymous. */
+.reviews__quote {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  padding: clamp(28px, 3vw, 40px);
+  margin: 0;
+  padding: clamp(28px, 3vw, 38px);
   background: #fff;
   border: 1px solid var(--line, rgba(0, 0, 0, 0.08));
   border-radius: var(--radius-md);
   transition: box-shadow 260ms ease, transform 260ms ease;
 }
 
-.reviews__card:hover {
+.reviews__quote:hover {
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.08);
   transform: translateY(-3px);
 }
 
-.reviews__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: var(--accent-3);
-  color: var(--accent-2);
-  flex: none;
-}
-
-.reviews__card h3 {
-  font-size: clamp(1.12rem, 1.5vw, 1.3rem);
-  font-weight: 500;
+.reviews__quote blockquote {
+  position: relative;
   margin: 0;
-}
-
-.reviews__card p {
+  padding-top: 30px;
   color: var(--muted);
-  font-size: 0.98rem;
-  margin: 0;
-  flex: 1 1 auto;
+  font-size: 1rem;
+  line-height: 1.72;
 }
 
-.reviews__card .btn { margin-top: 6px; }
+.reviews__quote blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -14px;
+  left: -4px;
+  color: var(--accent-2);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4rem;
+  line-height: 1;
+  opacity: 0.35;
+}
+
+.reviews__note {
+  max-width: 60ch;
+  margin: clamp(26px, 3vw, 38px) 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.reviews__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* No shared .btn--ghost exists; .btn--ghost-light is for dark backgrounds
+   only, and this section sits on --bg-2. */
+.reviews__actions .btn--ghost {
+  background: transparent;
+  border: 1px solid var(--charcoal);
+  color: var(--charcoal);
+}
+
+.reviews__actions .btn--ghost:hover {
+  background: var(--charcoal);
+  color: var(--off-white);
+}
 
 /* ============================================================ CTA STRIP */
 .cta-strip {
