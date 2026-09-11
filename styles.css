@@ -432,7 +432,8 @@ strong { font-weight: 500; color: var(--ink); }
 .hero__bg {
   position: fixed;
   inset: 0;
-  background-image: url("assets/images/ghost-door-hero-ai.jpg");
+  /* Fallback only — index.html sets the real hero inline. Kept in sync with it (ghost-5). */
+  background-image: url("assets/images/ghost-doors/ghost-5.jpg");
   background-size: cover;
   /* centered (not top-weighted) + no extra zoom, so the image isn't cut off top/bottom (Paula's feedback 9/8) */
   background-position: center center;
