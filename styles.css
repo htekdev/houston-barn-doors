@@ -950,7 +950,13 @@ strong { font-weight: 500; color: var(--ink); }
 
 .reviews__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* auto-fit + a min track that matches the widest card content (the nowrap
+     "Call 832-931-0468" button at ~226px plus 56px of card padding) lets the
+     grid drop to 2 or 1 columns on its own. A fixed repeat(3, 1fr) overflowed
+     and silently clipped the third card between ~901px and ~946px, because
+     1fr floors at min-content and html/body use overflow-x: hidden.
+     min(282px, 100%) keeps it safe on viewports narrower than the track. */
+  grid-template-columns: repeat(auto-fit, minmax(min(282px, 100%), 1fr));
   gap: clamp(20px, 2.4vw, 34px);
 }
 
@@ -997,10 +1003,6 @@ strong { font-weight: 500; color: var(--ink); }
 }
 
 .reviews__card .btn { margin-top: 6px; }
-
-@media (max-width: 900px) {
-  .reviews__grid { grid-template-columns: 1fr; }
-}
 
 /* ============================================================ CTA STRIP */
 .cta-strip {
