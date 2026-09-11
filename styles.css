@@ -1083,17 +1083,17 @@ a.contact__row:hover { transform: translateX(4px); }
 
 /* Nav gets tight before the tablet breakpoint — drop the sub-wordmark early
    so the logo, links and CTA stay on a single line. */
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .nav__wordmark-sub { display: none; }
-  .nav__links { gap: 26px; }
+  .nav__links { gap: 22px; }
+  .nav__links a { font-size: 0.74rem; letter-spacing: 0.09em; }
 }
 
-/* ============================================================ RESPONSIVE — TABLET */
-@media (max-width: 1024px) {
-  :root { --nav-h: 90px; }
-
-  .nav__mark { width: 46px; height: 46px; padding: 4px; }
-  .nav__inner { width: calc(100% - 36px); grid-template-columns: auto auto; justify-content: space-between; }
+/* Six product tabs + Home + Contact no longer fit on one desktop line, so the
+   nav collapses to the hamburger earlier than the general tablet breakpoint.
+   Nav-only rules — the rest of the tablet layout still switches at 1024px. */
+@media (max-width: 1180px) {
+  .nav__inner { grid-template-columns: auto auto; justify-content: space-between; }
   .nav__links {
     position: fixed;
     top: var(--nav-h); left: 0; right: 0;
@@ -1109,12 +1109,29 @@ a.contact__row:hover { transform: translateX(4px); }
     border-bottom: 1px solid rgba(245, 240, 235, 0);
   }
   .nav__links.is-open {
-    max-height: 460px;
+    max-height: 560px;
     padding: 14px 24px 26px;
     border-bottom-color: rgba(245, 240, 235, 0.09);
   }
-  .nav__links a { padding: 14px 0; font-size: 0.86rem; border-bottom: 1px solid rgba(245,240,235,0.06); }
+  .nav__links a {
+    padding: 14px 0;
+    font-size: 0.86rem;
+    letter-spacing: 0.12em;
+    border-bottom: 1px solid rgba(245,240,235,0.06);
+  }
   .nav__links a::after { display: none; }
+  .nav__toggle { display: flex; }
+}
+
+/* ============================================================ RESPONSIVE — TABLET */
+@media (max-width: 1024px) {
+  :root { --nav-h: 90px; }
+
+  .nav__mark { width: 46px; height: 46px; padding: 4px; }
+  .nav__inner { width: calc(100% - 36px); grid-template-columns: auto auto; justify-content: space-between; }
+  .nav__links.is-open {
+    max-height: 560px;
+  }
   .nav__toggle { display: flex; }
   .nav__wordmark-sub { display: none; }
 

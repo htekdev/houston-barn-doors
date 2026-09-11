@@ -76,14 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'ArrowRight') navigate(1);
   });
 
-  // ---- Mobile nav toggle (for sub-pages) ----
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function () {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !expanded);
-      navLinks.classList.toggle('nav__links--open');
-    });
-  }
+  // NOTE: the mobile nav toggle is handled by scripts.js (loaded on every page).
+  // Do not bind a second handler here — two listeners on the same button
+  // double-toggle aria-expanded and leave it reporting the wrong state.
 });
