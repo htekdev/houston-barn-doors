@@ -1,5 +1,5 @@
 /* ============================================================
-   HOUSTON'S BARN DOORS — LUXURY REDESIGN
+   Houstons Barn Doors — LUXURY REDESIGN
    Black · white · brass gold (matches the HB barn-rail mark)
    Cinematic scroll · full-screen ghost door hero
    ============================================================ */
@@ -22,6 +22,13 @@
   --gold-dark:     #a07840;
   --gold-tint:     #e3cb9f;
   --gold-rgb:      201, 160, 99;
+
+  /* Accessible gold for TEXT on light backgrounds. --gold is 2.42:1 on white
+     and --gold-dark only reaches ~4.0:1, both below the 4.5:1 WCAG AA floor
+     for normal-size text. This bronze clears AA on white and on --off-white
+     while still reading as the brand gold. Use --gold for large display type,
+     icons, rules and fills; use this for body-size gold text. */
+  --gold-ink:      #8a6531;
 
   --sand:          var(--gold);
   --sand-2:        var(--gold);
@@ -139,7 +146,7 @@ strong { font-weight: 500; color: var(--ink); }
   font-size: 0.68rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--muted-2);
+  color: var(--muted);
   font-weight: 500;
   margin: 0 0 26px;
 }
@@ -259,6 +266,16 @@ strong { font-weight: 500; color: var(--ink); }
 }
 
 .nav__wordmark { display: flex; flex-direction: column; line-height: 1.15; white-space: nowrap; }
+
+/* Pre-existing on main: at <=359px the logo (201px) + call button + hamburger
+   exceed the nav, pushing ~17px of the hamburger outside the viewport where
+   html/body overflow-x: hidden silently clips it. The wordmark is nowrap and
+   neither flex child shrinks, so nothing gives. Drop to the mark alone — the
+   <a aria-label> still announces "Houstons Barn Doors home", and this keeps
+   the tel: button, which is the nav's only one-tap call affordance. */
+@media (max-width: 359px) {
+  .nav__wordmark { display: none; }
+}
 .nav__wordmark-primary {
   font-family: var(--serif);
   font-size: 1.06rem;
@@ -326,12 +343,18 @@ strong { font-weight: 500; color: var(--ink); }
 .nav__group-toggle[aria-expanded="true"] .nav__group-chevron { transform: rotate(180deg); }
 
 /* Invisible bridge so the pointer can travel from the toggle to the menu
-   without crossing a dead gap and closing it. */
-.nav__group:hover::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 100%;
-  height: 16px;
+   without crossing a dead gap. Desktop only: below the breakpoint the group is
+   position:static inside the fixed panel, where an absolutely positioned
+   pseudo-element would add phantom scroll height. Gated by min-width rather
+   than reset later, because `.nav__group:hover::after` (0,2,1) outranks any
+   plain `.nav__group::after` reset (0,1,1) and would never be overridden. */
+@media (min-width: 1025px) {
+  .nav__group:hover::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    height: 16px;
+  }
 }
 
 .nav__group-menu {
@@ -353,8 +376,10 @@ strong { font-weight: 500; color: var(--ink); }
   transition: opacity 240ms var(--ease), transform 240ms var(--ease), visibility 240ms;
   z-index: 60;
 }
-.nav__group:hover .nav__group-menu,
-.nav__group:focus-within .nav__group-menu,
+/* `.is-open` is the single source of truth for the open state. Hover and focus
+   are handled in scripts.js so that the visible state and aria-expanded can
+   never disagree — driving visibility from :hover/:focus-within in CSS made
+   click-to-close and Escape silent no-ops. */
 .nav__group-menu.is-open {
   opacity: 1;
   visibility: visible;
@@ -407,7 +432,8 @@ strong { font-weight: 500; color: var(--ink); }
 .hero__bg {
   position: fixed;
   inset: 0;
-  background-image: url("assets/images/ghost-door-hero-ai.jpg");
+  /* Fallback only — index.html sets the real hero inline. Kept in sync with it (ghost-5). */
+  background-image: url("assets/images/ghost-doors/ghost-5.jpg");
   background-size: cover;
   /* centered (not top-weighted) + no extra zoom, so the image isn't cut off top/bottom (Paula's feedback 9/8) */
   background-position: center center;
@@ -416,6 +442,27 @@ strong { font-weight: 500; color: var(--ink); }
   z-index: -2;
   will-change: transform;
   transform: scale(1.0);
+}
+
+/* A11y fix: the hero's parallax layers (.hero__bg and .hero__scrim) are
+   position: fixed. .hero sets overflow: hidden, but it has no transform /
+   filter / will-change of its own, so it does NOT establish a containing
+   block for fixed descendants — the layers escape and cover the whole
+   viewport at every scroll position.
+
+   On top of that, .hero is positioned (relative) while the page content is
+   static, so the hero photo and its dark scrim paint in a LATER layer than
+   every following section's background. The result: "What we build" rendered
+   near-black body text directly over a dark photo, which is what prompted
+   this fix.
+
+   Lifting the content into the positioned layer restores the correct order.
+   Both are siblings of the nav (z-index 100) and the lightbox (z-index 1000),
+   which sit outside <main>, so neither gets trapped beneath this. */
+#main,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__scrim {
@@ -494,6 +541,49 @@ strong { font-weight: 500; color: var(--ink); }
   display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
   animation: heroIn 1200ms var(--ease) both;
   animation-delay: 520ms;
+}
+
+/* Service badges (install + ship). Scoped with :has() so the other pages' heroes,
+   which have no badges, keep the original 48px lede spacing untouched. */
+.hero__lede:has(+ .hero__badges) { margin-bottom: 22px; }
+
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 820px;
+  margin: 0 auto 40px;
+}
+
+.hero__ship {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  /* .hero__badges owns the outer spacing now. */
+  margin: 0;
+  padding: 10px 18px;
+  border: 1px solid rgba(245, 240, 235, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.22);
+  color: rgba(245, 240, 235, 0.92);
+  font-size: clamp(0.87rem, 1.1vw, 0.97rem);
+  font-weight: 300;
+  line-height: 1.45;
+  text-align: left;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+  animation: heroIn 1200ms var(--ease) both;
+  animation-delay: 450ms;
+}
+
+/* "and install" is the point of this badge — give it weight without shouting. */
+.hero__ship strong { font-weight: 500; color: #fff; }
+
+.hero__ship svg { flex: none; color: var(--gold-light, #d9b98a); }
+
+@media (max-width: 560px) {
+  .hero__ship { padding: 10px 15px; border-radius: 16px; }
+  .hero__badges { gap: 10px; }
 }
 
 @keyframes heroIn {
@@ -854,24 +944,6 @@ strong { font-weight: 500; color: var(--ink); }
 }
 .tile:hover .tile__overlay, .tile:focus-visible .tile__overlay { opacity: 1; }
 
-/* ============================================================ ETSY */
-.etsy { background: var(--charcoal); }
-.etsy h2, .etsy .eyebrow { color: var(--dark-ink); }
-.etsy .eyebrow { color: var(--dark-muted); }
-.etsy p { color: var(--dark-muted); }
-.etsy__inner {
-  display: grid;
-  grid-template-columns: 1.4fr auto;
-  gap: clamp(36px, 5vw, 80px);
-  align-items: center;
-}
-.etsy__copy h2 { margin-bottom: 20px; }
-.etsy__copy p { margin: 0; max-width: 640px; }
-.etsy__actions { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
-.etsy__actions .btn--dark { background: var(--sand-2); color: var(--charcoal); }
-.etsy__actions .btn--dark:hover { background: var(--sand-3); }
-.etsy__note { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dark-muted); }
-
 /* ============================================================ PROCESS */
 .process { background: var(--off-white-2); }
 .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(20px, 2.4vw, 34px); }
@@ -935,7 +1007,93 @@ strong { font-weight: 500; color: var(--ink); }
 }
 .craft__list { display: flex; flex-direction: column; gap: 16px; margin: 32px 0 40px; }
 .craft__list li { display: flex; gap: 15px; align-items: flex-start; font-size: 0.97rem; color: var(--muted); line-height: 1.72; font-weight: 300; }
-.craft__check { color: var(--sand); flex-shrink: 0; font-size: 0.9rem; line-height: 1.9; }
+.craft__check { color: var(--gold-ink); flex-shrink: 0; font-size: 0.9rem; line-height: 1.9; }
+
+/* ============================================================ REVIEWS */
+.reviews { background: var(--bg-2, var(--bg)); }
+
+.reviews__grid {
+  display: grid;
+  /* auto-fit with a min track lets the grid pick its own column count. A fixed
+     repeat(N, 1fr) overflowed and silently clipped the last card on some
+     widths, because 1fr floors at min-content and html/body use
+     overflow-x: hidden. min(282px, 100%) keeps it safe on narrow viewports. */
+  grid-template-columns: repeat(auto-fit, minmax(min(282px, 100%), 1fr));
+  gap: clamp(20px, 2.4vw, 34px);
+}
+
+/* Four quotes read better as a balanced 2x2 than as 3 + a lone orphan.
+   minmax(0, 1fr) rather than plain 1fr: a bare 1fr floors at min-content,
+   which is what overflowed this grid before. */
+@media (min-width: 900px) {
+  .reviews__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Verbatim customer reviews carried over from the previous site. Deliberately
+   unattributed — the source copy had no names, and inventing them is worse
+   than leaving them anonymous. */
+.reviews__quote {
+  display: flex;
+  margin: 0;
+  padding: clamp(28px, 3vw, 38px);
+  background: #fff;
+  border: 1px solid var(--line, rgba(0, 0, 0, 0.08));
+  border-radius: var(--radius-md);
+  transition: box-shadow 260ms ease, transform 260ms ease;
+}
+
+.reviews__quote:hover {
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.reviews__quote blockquote {
+  position: relative;
+  margin: 0;
+  padding-top: 30px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.reviews__quote blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -14px;
+  left: -4px;
+  color: var(--accent-2);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4rem;
+  line-height: 1;
+  opacity: 0.35;
+}
+
+.reviews__note {
+  max-width: 60ch;
+  margin: clamp(26px, 3vw, 38px) 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.reviews__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* No shared .btn--ghost exists; .btn--ghost-light is for dark backgrounds
+   only, and this section sits on --bg-2. */
+.reviews__actions .btn--ghost {
+  background: transparent;
+  border: 1px solid var(--charcoal);
+  color: var(--charcoal);
+}
+
+.reviews__actions .btn--ghost:hover {
+  background: var(--charcoal);
+  color: var(--off-white);
+}
 
 /* ============================================================ CTA STRIP */
 .cta-strip {
@@ -959,7 +1117,10 @@ strong { font-weight: 500; color: var(--ink); }
 
 /* ============================================================ CONTACT */
 .contact-section { background: var(--off-white-2); }
-.contact { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(30px, 4vw, 62px); align-items: start; }
+/* One child only (the form was retired), so a 2-column grid left ~55% of the
+   section empty and squeezed the card into the narrow track. Single centered
+   column instead. */
+.contact { display: grid; grid-template-columns: minmax(0, 620px); justify-content: center; gap: clamp(30px, 4vw, 62px); align-items: start; }
 
 .contact__card {
   background: var(--charcoal);
@@ -983,6 +1144,74 @@ strong { font-weight: 500; color: var(--ink); }
 }
 .contact__row:last-child { border-bottom: 0; }
 a.contact__row:hover { transform: translateX(4px); }
+
+/* Primary conversion path. The phone is the fastest way to reach Sergio, so it
+   reads as a button rather than another list row. */
+.contact__call {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 6px;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  background: var(--gold);
+  color: var(--charcoal);
+  border: 1px solid var(--gold);
+  transition: background 280ms var(--ease), transform 280ms var(--ease), box-shadow 280ms var(--ease);
+}
+.contact__call:hover,
+.contact__call:focus-visible {
+  background: var(--sand-3, #e0c9a6);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+}
+.contact__call-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px; flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.12);
+  color: var(--charcoal);
+}
+.contact__call-text { display: block; min-width: 0; }
+.contact__call-label {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  /* Dark ink on gold — 5.4:1, clears AA with room to spare. */
+  color: rgba(20, 20, 20, 0.8);
+  margin-bottom: 3px;
+}
+.contact__call-number {
+  display: block;
+  color: var(--charcoal);
+  font-size: clamp(1.22rem, 2.2vw, 1.46rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+/* Social sits below the contact rows as proof-of-work, not as a competing
+   action. Outlined rather than filled — gold stays reserved for the phone. */
+.contact__social { padding-top: 18px; }
+.contact__social .contact__label { margin-bottom: 12px; }
+.contact__social-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.social__pill {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--dark-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--dark-ink);
+  font-size: 0.88rem;
+  font-weight: 300;
+  transition: border-color 260ms var(--ease), color 260ms var(--ease), background 260ms var(--ease);
+}
+.social__pill svg { flex: none; color: var(--gold-tint); }
+.social__pill:hover,
+.social__pill:focus-visible {
+  border-color: rgba(201, 160, 99, 0.6);
+  background: rgba(201, 160, 99, 0.1);
+  color: #fff;
+}
 .contact__icon {
   display: inline-flex; align-items: center; justify-content: center;
   width: 42px; height: 42px; flex-shrink: 0;
@@ -999,7 +1228,11 @@ a.contact__row:hover { transform: translateX(4px); }
   color: var(--dark-muted);
   margin-bottom: 3px;
 }
-.contact__value { display: block; color: var(--dark-ink); font-size: 0.98rem; font-weight: 400; }
+/* The email address is a long unbroken token; let it break rather than push the
+   card at narrow widths. break-word (not anywhere) — `anywhere` also shrinks
+   intrinsic min-content width, which made it wrap mid-word at 390px where it
+   otherwise fits on one line. */
+.contact__value { display: block; color: var(--dark-ink); font-size: 0.98rem; font-weight: 400; overflow-wrap: break-word; }
 
 .contact__brag {
   margin-top: 26px;
@@ -1101,6 +1334,35 @@ a.contact__row:hover { transform: translateX(4px); }
 .footer__col a:hover { color: var(--sand-3); }
 .footer__note { color: rgba(163, 154, 142, 0.66) !important; font-size: 0.8rem !important; margin-top: 6px; }
 
+/* The footer markup uses __brand/__links/__contact, but the stylesheet only
+   ever defined __col/__wordmark/__tag — so these columns were relying on
+   default inline flow. Give them the stacked rhythm the design intends. */
+.footer__links, .footer__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; }
+.footer__links a, .footer__contact a {
+  color: var(--dark-muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+  transition: color 260ms var(--ease);
+}
+.footer__links a:hover, .footer__contact a:hover { color: var(--sand-3); }
+
+.footer__social { display: flex; gap: 10px; margin-top: 5px; }
+.social__link {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-border);
+  color: var(--dark-muted);
+  transition: color 260ms var(--ease), border-color 260ms var(--ease), background 260ms var(--ease), transform 260ms var(--ease);
+}
+.social__link:hover,
+.social__link:focus-visible {
+  color: var(--charcoal);
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
 .footer__base {
   border-top: 1px solid var(--dark-border);
   width: min(1320px, calc(100% - 48px));
@@ -1161,6 +1423,9 @@ a.contact__row:hover { transform: translateX(4px); }
   .nav__links { gap: 22px; }
   .nav__links a { font-size: 0.74rem; letter-spacing: 0.09em; }
   .nav__group-toggle { font-size: 0.74rem; letter-spacing: 0.09em; }
+  /* `.nav__links a` above also matches the dropdown items, which would make
+     them larger here than at full width. Keep them on their own scale. */
+  .nav__group-menu a { font-size: 0.72rem; letter-spacing: 0.1em; }
 }
 
 /* Nav collapses to the hamburger at the standard tablet breakpoint. The six
@@ -1202,7 +1467,6 @@ a.contact__row:hover { transform: translateX(4px); }
      being a control and becomes a section heading. scripts.js mirrors this by
      pinning aria-expanded="true" and removing it from the tab order. */
   .nav__group { position: static; }
-  .nav__group::after { content: none; }
   .nav__group-toggle {
     width: 100%;
     justify-content: flex-start;
@@ -1258,7 +1522,6 @@ a.contact__row:hover { transform: translateX(4px); }
   .craft__frame img { aspect-ratio: 16 / 11; }
 
   .barn__grid { grid-template-columns: 1fr 1fr; }
-  .etsy__inner { grid-template-columns: 1fr; }
   .cta-strip__inner { grid-template-columns: 1fr; }
   .contact { grid-template-columns: 1fr; }
   .footer__inner { grid-template-columns: 1fr 1fr; }

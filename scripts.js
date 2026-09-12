@@ -1,4 +1,4 @@
-/* Houston's Barn Doors — interactive layer
+/* Houstons Barn Doors — interactive layer
    AOS init, sticky nav, mobile menu, cinematic parallax, gallery lightbox. */
 
 (() => {
@@ -94,31 +94,37 @@
   }
 
   /* ---------- Products dropdown ----------
-     Desktop: a real disclosure — click to toggle, hover/focus also opens it
-     via CSS. Stacked (<=1024px): the product links are always rendered, so the
-     button is inert and just acts as a section heading. The media query is the
-     single source of truth for which mode we're in, mirroring styles.css. */
+     `.is-open` is the only thing that opens the menu, in both CSS and JS, so
+     the visible state and aria-expanded can never disagree. Hover and focus
+     are handled here rather than via :hover/:focus-within, because a clicked
+     button keeps focus — which would have pinned the menu open and made
+     click-to-close and Escape silent no-ops.
+
+     Stacked (<=1024px): the product links are always rendered, so the button
+     becomes an inert section heading. The media query is the single source of
+     truth for which mode we're in, mirroring styles.css. */
   const groupToggle = $('#navProductsToggle');
   const groupMenu   = $('#navProductsMenu');
   if (groupToggle && groupMenu) {
     const group   = groupToggle.closest('.nav__group');
     const stacked = window.matchMedia('(max-width: 1024px)');
 
-    const closeGroup = () => {
-      groupMenu.classList.remove('is-open');
-      groupToggle.setAttribute('aria-expanded', 'false');
+    const setGroup = (open) => {
+      groupMenu.classList.toggle('is-open', open);
+      groupToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
+    const closeGroup = () => setGroup(false);
 
     const syncGroup = () => {
-      groupMenu.classList.remove('is-open');
       if (stacked.matches) {
         // Links are visible regardless, so advertise them as expanded and keep
         // the inert heading out of the tab order.
+        groupMenu.classList.remove('is-open');
         groupToggle.setAttribute('aria-expanded', 'true');
         groupToggle.setAttribute('tabindex', '-1');
       } else {
-        groupToggle.setAttribute('aria-expanded', 'false');
         groupToggle.removeAttribute('tabindex');
+        closeGroup();
       }
     };
 
@@ -127,9 +133,27 @@
 
     groupToggle.addEventListener('click', () => {
       if (stacked.matches) return;
-      const open = groupMenu.classList.toggle('is-open');
-      groupToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      setGroup(!groupMenu.classList.contains('is-open'));
     });
+
+    if (group) {
+      group.addEventListener('mouseenter', () => {
+        if (!stacked.matches) setGroup(true);
+      });
+      group.addEventListener('mouseleave', () => {
+        if (!stacked.matches) closeGroup();
+      });
+      // Tabbing into the links opens it. Focusing the toggle itself does not —
+      // that's what the button is for, and it keeps Escape from re-opening the
+      // menu when focus is returned to the toggle.
+      group.addEventListener('focusin', (e) => {
+        if (!stacked.matches && groupMenu.contains(e.target)) setGroup(true);
+      });
+      group.addEventListener('focusout', (e) => {
+        if (stacked.matches) return;
+        if (!group.contains(e.relatedTarget)) closeGroup();
+      });
+    }
 
     document.addEventListener('click', (e) => {
       if (stacked.matches) return;
@@ -137,7 +161,10 @@
     });
 
     document.addEventListener('keydown', (e) => {
-      if (e.key !== 'Escape' || stacked.matches) return;
+      // Match Escape defensively: legacy engines report "Esc", and keyCode 27
+      // is the reliable fallback when `key` is absent or non-standard.
+      const isEscape = e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27;
+      if (!isEscape || stacked.matches) return;
       if (groupMenu.classList.contains('is-open')) {
         closeGroup();
         groupToggle.focus();

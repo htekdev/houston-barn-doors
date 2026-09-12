@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     lbImg.src = item.href;
     lbImg.alt = item.querySelector('img')?.alt || '';
-    lbCaption.textContent = item.dataset.caption || '';
+    // Product pages are gallery-only, so the caption element is absent.
+    if (lbCaption) lbCaption.textContent = item.dataset.caption || '';
     lightbox.hidden = false;
     document.body.style.overflow = 'hidden';
   }
